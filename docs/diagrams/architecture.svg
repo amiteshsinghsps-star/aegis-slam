@@ -1,0 +1,145 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1040" height="712" font-family="Segoe UI, Arial, sans-serif" font-size="13">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#4a5568"/>
+    </marker>
+    <style>
+      .box { rx: 10; stroke-width: 1.5; }
+      .new { fill: #eaf3ff; stroke: #2b6cb0; }
+      .reuse { fill: #f0fff4; stroke: #2f855a; }
+      .cloud { fill: #fffaf0; stroke: #b7791f; }
+      .title { font-size: 15px; font-weight: 700; fill: #1a202c; }
+      .sub { font-size: 11px; fill: #4a5568; }
+      .lbl { font-size: 11px; fill: #2d3748; }
+      .edge { stroke: #4a5568; stroke-width: 1.4; fill: none; marker-end: url(#arr); }
+    </style>
+  </defs>
+
+  <text x="520" y="26" text-anchor="middle" class="title">AEGIS-SLAM architecture — OpenCV 5 SLAM + agent supervisor + AWS Graviton service</text>
+
+  <!-- legend -->
+  <rect x="30" y="40" width="14" height="14" class="box new"/>
+  <text x="50" y="51" class="sub">new (aegis / web / deploy)</text>
+  <rect x="240" y="40" width="14" height="14" class="box reuse"/>
+  <text x="260" y="51" class="sub">reused upstream SLAM core (slam/)</text>
+  <rect x="450" y="40" width="14" height="14" class="box cloud"/>
+  <text x="470" y="51" class="sub">AWS</text>
+
+  <!-- input -->
+  <rect x="30" y="80" width="180" height="70" class="box reuse"/>
+  <text x="120" y="105" text-anchor="middle" class="title">Input</text>
+  <text x="120" y="122" text-anchor="middle" class="sub">video / image seq</text>
+  <text x="120" y="137" text-anchor="middle" class="sub">synthetic benchmark</text>
+
+  <!-- fault injection -->
+  <rect x="30" y="190" width="180" height="70" class="box new"/>
+  <text x="120" y="215" text-anchor="middle" class="title">Fault injection</text>
+  <text x="120" y="232" text-anchor="middle" class="sub">blur · low light ·</text>
+  <text x="120" y="247" text-anchor="middle" class="sub">texture loss · drops</text>
+  <path class="edge" d="M120,150 L120,190"/>
+
+  <!-- pipeline -->
+  <rect x="270" y="80" width="300" height="270" class="box new"/>
+  <text x="420" y="103" text-anchor="middle" class="title">Supervised pipeline (aegis/pipeline.py)</text>
+
+  <rect x="290" y="118" width="260" height="40" class="box reuse"/>
+  <text x="420" y="135" text-anchor="middle" class="lbl">Features · two-view bootstrap · PnP</text>
+  <text x="420" y="150" text-anchor="middle" class="sub">(slam/core, OpenCV 5)</text>
+
+  <rect x="290" y="166" width="260" height="40" class="box reuse"/>
+  <text x="420" y="183" text-anchor="middle" class="lbl">Keyframes · triangulation · local BA</text>
+  <text x="420" y="198" text-anchor="middle" class="sub">USAC 2D-2D fallback (robust_geometry)</text>
+
+  <rect x="290" y="214" width="260" height="40" class="box new"/>
+  <text x="420" y="231" text-anchor="middle" class="lbl">HealthSignals per frame</text>
+  <text x="420" y="246" text-anchor="middle" class="sub">blur · brightness · inliers · landmarks</text>
+
+  <rect x="290" y="262" width="260" height="40" class="box new"/>
+  <text x="420" y="279" text-anchor="middle" class="lbl">RuntimeConfig (read every frame)</text>
+  <text x="420" y="294" text-anchor="middle" class="sub">backend · preprocess · estimator · thresholds</text>
+
+  <path class="edge" d="M210,225 L270,225"/>
+  <path class="edge" d="M420,214 L420,254" marker-end="none"/>
+
+  <!-- supervisor -->
+  <rect x="640" y="80" width="230" height="270" class="box new"/>
+  <text x="755" y="103" text-anchor="middle" class="title">Agent supervisor</text>
+  <text x="755" y="120" text-anchor="middle" class="sub">(supervisor.py · rules engine)</text>
+  <text x="755" y="145" text-anchor="middle" class="lbl">OBSERVE window stats</text>
+  <text x="755" y="165" text-anchor="middle" class="lbl">DIAGNOSE failure mode</text>
+  <text x="755" y="185" text-anchor="middle" class="lbl">DECIDE bounded action</text>
+  <text x="755" y="205" text-anchor="middle" class="lbl">ACT via tool registry</text>
+  <text x="755" y="225" text-anchor="middle" class="lbl">VERIFY next window</text>
+  <text x="755" y="245" text-anchor="middle" class="lbl">ROLLBACK on regression</text>
+  <rect x="665" y="265" width="180" height="40" class="box new"/>
+  <text x="755" y="282" text-anchor="middle" class="lbl">Tools (OpenCV 5 backed)</text>
+  <text x="755" y="297" text-anchor="middle" class="sub">ORB/SIFT/ALIKED · CLAHE · USAC</text>
+  <path class="edge" d="M570,234 L640,234"/>
+  <path class="edge" d="M665,285 L570,285"/>
+  <text x="612" y="278" text-anchor="middle" class="sub">config</text>
+
+  <!-- trace + approval -->
+  <rect x="640" y="380" width="230" height="90" class="box new"/>
+  <text x="755" y="405" text-anchor="middle" class="title">Decision trace</text>
+  <text x="755" y="422" text-anchor="middle" class="sub">evidence → diagnosis → action</text>
+  <text x="755" y="437" text-anchor="middle" class="sub">→ outcome · trace.json</text>
+  <text x="755" y="457" text-anchor="middle" class="sub">ApprovalGate: human-in-the-loop</text>
+  <path class="edge" d="M755,350 L755,380"/>
+
+  <!-- outputs -->
+  <rect x="270" y="390" width="300" height="80" class="box new"/>
+  <text x="420" y="415" text-anchor="middle" class="title">Run artifacts</text>
+  <text x="420" y="432" text-anchor="middle" class="sub">result.json (ATE · coverage · recovery)</text>
+  <text x="420" y="447" text-anchor="middle" class="sub">trajectory.png/.npz · health_timeline.json</text>
+  <path class="edge" d="M420,350 L420,390"/>
+
+  <!-- eval -->
+  <rect x="30" y="390" width="180" height="80" class="box new"/>
+  <text x="120" y="415" text-anchor="middle" class="title">Benchmark</text>
+  <text x="120" y="432" text-anchor="middle" class="sub">baseline vs supervised</text>
+  <text x="120" y="447" text-anchor="middle" class="sub">vs multi vs ablation</text>
+  <text x="120" y="462" text-anchor="middle" class="sub">3 seeds · severity sweep</text>
+
+  <!-- mcp: external-agent entry point into the same runtime -->
+  <rect x="30" y="296" width="180" height="78" class="box new"/>
+  <text x="120" y="316" text-anchor="middle" class="title">MCP tool server</text>
+  <text x="120" y="333" text-anchor="middle" class="sub">aegis/mcp_server.py (stdio)</text>
+  <text x="120" y="348" text-anchor="middle" class="sub">external agent reads health</text>
+  <text x="120" y="363" text-anchor="middle" class="sub">signals, calls the 3 reversible tools</text>
+  <path class="edge" d="M210,335 L270,335"/>
+  <!-- faults feed the benchmark; routed around the MCP box -->
+  <path class="edge" d="M30,240 L15,240 L15,420 L30,420"/>
+
+  <!-- AWS cloud -->
+  <rect x="270" y="510" width="740" height="192" class="box cloud"/>
+  <text x="640" y="533" text-anchor="middle" class="title">AWS (Graviton4)</text>
+  <rect x="300" y="550" width="170" height="60" class="box cloud"/>
+  <text x="385" y="573" text-anchor="middle" class="lbl">FastAPI job service</text>
+  <text x="385" y="590" text-anchor="middle" class="sub">aegis/server.py · :8000</text>
+  <rect x="500" y="550" width="150" height="60" class="box cloud"/>
+  <text x="575" y="573" text-anchor="middle" class="lbl">c8g.large EC2</text>
+  <text x="575" y="590" text-anchor="middle" class="sub">ARM64 Docker · SSM only</text>
+  <rect x="680" y="550" width="130" height="60" class="box cloud"/>
+  <text x="745" y="573" text-anchor="middle" class="lbl">S3 uploads</text>
+  <text x="745" y="590" text-anchor="middle" class="sub">presigned · 1-day expiry</text>
+  <rect x="840" y="550" width="150" height="60" class="box cloud"/>
+  <text x="915" y="573" text-anchor="middle" class="lbl">Cost guard</text>
+  <text x="915" y="590" text-anchor="middle" class="sub">Budgets alarm → stop</text>
+  <rect x="300" y="622" width="170" height="60" class="box cloud"/>
+  <text x="385" y="645" text-anchor="middle" class="lbl">CloudWatch</text>
+  <text x="385" y="662" text-anchor="middle" class="sub">AEGISSlam/* per-job metrics</text>
+  <rect x="500" y="622" width="150" height="60" class="box cloud"/>
+  <text x="575" y="645" text-anchor="middle" class="lbl">Bedrock (optional)</text>
+  <text x="575" y="662" text-anchor="middle" class="sub">schema-validated, off by default</text>
+  <rect x="680" y="622" width="310" height="60" class="box cloud"/>
+  <text x="835" y="645" text-anchor="middle" class="lbl">Least-privilege IAM + network posture</text>
+  <text x="835" y="662" text-anchor="middle" class="sub">S3 = 1 bucket · no SSH (SSM) · :8000 owner-IP only</text>
+  <path class="edge" d="M420,470 L420,510"/>
+  <path class="edge" d="M755,470 L700,510"/>
+
+  <!-- web UI -->
+  <rect x="640" y="30" width="230" height="40" class="box new"/>
+  <text x="755" y="48" text-anchor="middle" class="lbl">Live web UI (web/)</text>
+  <text x="755" y="63" text-anchor="middle" class="sub">trajectory · feed · approvals</text>
+  <path class="edge" d="M755,70 L755,80" transform="translate(0,6)"/>
+</svg>

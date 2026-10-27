@@ -1,0 +1,7 @@
+{
+  "runs": [
+    "blur",
+    "clean",
+    "framedrop"
+  ]
+}

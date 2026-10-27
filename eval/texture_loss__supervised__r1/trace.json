@@ -1,0 +1,171 @@
+{
+  "schema_version": 1,
+  "summary": {
+    "num_decisions": 3,
+    "by_diagnosis": {
+      "dynamic_or_repetitive": 3
+    },
+    "by_decider": {
+      "rules": 3
+    },
+    "by_verdict": {
+      "rolled_back": 3
+    },
+    "num_backend_switches": 0
+  },
+  "decisions": [
+    {
+      "decision_id": "d-0001",
+      "frame": 30,
+      "evidence": {
+        "inliers": 6.7,
+        "inlier_ratio": 0.115,
+        "blur_var": 1364.23,
+        "brightness": 215.2,
+        "contrast": 43.0,
+        "feature_count": 4000.5,
+        "tracked_landmarks": 133.9,
+        "mean_reproj_px": 0.184,
+        "frame_to_frame_matches": 2242.1,
+        "texture": 52.28
+      },
+      "diagnosis": "dynamic_or_repetitive",
+      "decided_by": "rules",
+      "action": {
+        "tool": "retune_thresholds",
+        "args": {
+          "robust_estimator": "usac",
+          "ransac_thresh": 2.0
+        }
+      },
+      "config_before": {
+        "backend": "orb",
+        "preprocess": "none",
+        "ransac_thresh": 2.5,
+        "pnp_min_inliers": 30,
+        "max_features": 4000,
+        "min_conf": 0.7,
+        "robust_estimator": "ransac"
+      },
+      "config_after": {
+        "backend": "orb",
+        "preprocess": "none",
+        "ransac_thresh": 2.0,
+        "pnp_min_inliers": 30,
+        "max_features": 4000,
+        "min_conf": 0.7,
+        "robust_estimator": "usac"
+      },
+      "outcome": {
+        "window": [
+          21,
+          40
+        ],
+        "inlier_ratio": 0.09146658014276444,
+        "verdict": "rolled_back"
+      }
+    },
+    {
+      "decision_id": "d-0002",
+      "frame": 50,
+      "evidence": {
+        "inliers": 0.0,
+        "inlier_ratio": 0.0,
+        "blur_var": 631.4,
+        "brightness": 216.3,
+        "contrast": 32.3,
+        "feature_count": 3787.8,
+        "tracked_landmarks": 183.0,
+        "mean_reproj_px": 0.0,
+        "frame_to_frame_matches": 1711.0,
+        "texture": 34.08
+      },
+      "diagnosis": "dynamic_or_repetitive",
+      "decided_by": "rules",
+      "action": {
+        "tool": "retune_thresholds",
+        "args": {
+          "robust_estimator": "usac",
+          "ransac_thresh": 2.0
+        }
+      },
+      "config_before": {
+        "backend": "orb",
+        "preprocess": "none",
+        "ransac_thresh": 2.5,
+        "pnp_min_inliers": 30,
+        "max_features": 4000,
+        "min_conf": 0.7,
+        "robust_estimator": "ransac"
+      },
+      "config_after": {
+        "backend": "orb",
+        "preprocess": "none",
+        "ransac_thresh": 2.0,
+        "pnp_min_inliers": 30,
+        "max_features": 4000,
+        "min_conf": 0.7,
+        "robust_estimator": "usac"
+      },
+      "outcome": {
+        "window": [
+          41,
+          60
+        ],
+        "inlier_ratio": 0.0,
+        "verdict": "rolled_back"
+      }
+    },
+    {
+      "decision_id": "d-0003",
+      "frame": 70,
+      "evidence": {
+        "inliers": 0.0,
+        "inlier_ratio": 0.0,
+        "blur_var": 983.49,
+        "brightness": 219.1,
+        "contrast": 36.7,
+        "feature_count": 3552.5,
+        "tracked_landmarks": 184.4,
+        "mean_reproj_px": 0.0,
+        "frame_to_frame_matches": 1656.1,
+        "texture": 38.79
+      },
+      "diagnosis": "dynamic_or_repetitive",
+      "decided_by": "rules",
+      "action": {
+        "tool": "retune_thresholds",
+        "args": {
+          "robust_estimator": "usac",
+          "ransac_thresh": 2.0
+        }
+      },
+      "config_before": {
+        "backend": "orb",
+        "preprocess": "none",
+        "ransac_thresh": 2.5,
+        "pnp_min_inliers": 30,
+        "max_features": 4000,
+        "min_conf": 0.7,
+        "robust_estimator": "ransac"
+      },
+      "config_after": {
+        "backend": "orb",
+        "preprocess": "none",
+        "ransac_thresh": 2.0,
+        "pnp_min_inliers": 30,
+        "max_features": 4000,
+        "min_conf": 0.7,
+        "robust_estimator": "usac"
+      },
+      "outcome": {
+        "window": [
+          61,
+          80
+        ],
+        "inlier_ratio": 0.0,
+        "verdict": "rolled_back"
+      }
+    }
+  ]
+}

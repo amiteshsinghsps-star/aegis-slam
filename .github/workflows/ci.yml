@@ -1,0 +1,33 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - name: Install (server subset — heavy optional deps skipped)
+        run: |
+          python -m pip install --upgrade pip
+          pip install numpy scipy opencv-python-headless==5.0.0.93 pytest fastapi uvicorn python-multipart
+      - name: Generate synthetic dataset
+        run: python -m aegis.synth --out Dataset/synthetic --frames 60 --no_mp4
+      - name: Unit tests
+        run: pytest tests/test_geom.py tests/test_health.py tests/test_supervisor.py tests/test_tools_faults.py tests/test_multi.py tests/test_metrics_mcp_eval.py tests/test_datasets.py tests/test_pipeline_backend_switch.py tests/test_review_fixes.py tests/test_server_scenarios.py -q
+      - name: Trace figure + severity sweep plumbing (no long runs)
+        run: |
+          python scripts/severity_sweep.py --data Dataset/synthetic --frames 30 \
+            --runs 1 --severities 0.5 --scenarios motion_blur --out runs/ci_sweep --jobs 2
+          test -s runs/ci_sweep/results.json
+      - name: 30-frame supervised smoke run
+        run: |
+          python -m aegis.run --data Dataset/synthetic --frames 30 --mode supervised --out runs/ci_smoke
+          python -c "import json; r=json.load(open('runs/ci_smoke/result.json')); assert r['initialised'], r; print('smoke ok:', {k: r[k] for k in ('frames','ate','coverage_trusted')})"

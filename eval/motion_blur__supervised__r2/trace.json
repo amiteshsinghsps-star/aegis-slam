@@ -1,0 +1,171 @@
+{
+  "schema_version": 1,
+  "summary": {
+    "num_decisions": 3,
+    "by_diagnosis": {
+      "dynamic_or_repetitive": 3
+    },
+    "by_decider": {
+      "rules": 3
+    },
+    "by_verdict": {
+      "rolled_back": 3
+    },
+    "num_backend_switches": 0
+  },
+  "decisions": [
+    {
+      "decision_id": "d-0001",
+      "frame": 30,
+      "evidence": {
+        "inliers": 130.7,
+        "inlier_ratio": 0.349,
+        "blur_var": 1415.06,
+        "brightness": 214.6,
+        "contrast": 43.6,
+        "feature_count": 4000.6,
+        "tracked_landmarks": 2404.8,
+        "mean_reproj_px": 1.351,
+        "frame_to_frame_matches": 1940.2,
+        "texture": 54.0
+      },
+      "diagnosis": "dynamic_or_repetitive",
+      "decided_by": "rules",
+      "action": {
+        "tool": "retune_thresholds",
+        "args": {
+          "robust_estimator": "usac",
+          "ransac_thresh": 2.0
+        }
+      },
+      "config_before": {
+        "backend": "orb",
+        "preprocess": "none",
+        "ransac_thresh": 2.5,
+        "pnp_min_inliers": 30,
+        "max_features": 4000,
+        "min_conf": 0.7,
+        "robust_estimator": "ransac"
+      },
+      "config_after": {
+        "backend": "orb",
+        "preprocess": "none",
+        "ransac_thresh": 2.0,
+        "pnp_min_inliers": 30,
+        "max_features": 4000,
+        "min_conf": 0.7,
+        "robust_estimator": "usac"
+      },
+      "outcome": {
+        "window": [
+          21,
+          40
+        ],
+        "inlier_ratio": 0.3024090124170764,
+        "verdict": "rolled_back"
+      }
+    },
+    {
+      "decision_id": "d-0002",
+      "frame": 50,
+      "evidence": {
+        "inliers": 7.8,
+        "inlier_ratio": 0.141,
+        "blur_var": 64.9,
+        "brightness": 216.9,
+        "contrast": 23.2,
+        "feature_count": 2046.9,
+        "tracked_landmarks": 2720.8,
+        "mean_reproj_px": 0.0,
+        "frame_to_frame_matches": 1075.8,
+        "texture": 29.66
+      },
+      "diagnosis": "dynamic_or_repetitive",
+      "decided_by": "rules",
+      "action": {
+        "tool": "retune_thresholds",
+        "args": {
+          "robust_estimator": "usac",
+          "ransac_thresh": 2.0
+        }
+      },
+      "config_before": {
+        "backend": "orb",
+        "preprocess": "none",
+        "ransac_thresh": 2.5,
+        "pnp_min_inliers": 30,
+        "max_features": 4000,
+        "min_conf": 0.7,
+        "robust_estimator": "ransac"
+      },
+      "config_after": {
+        "backend": "orb",
+        "preprocess": "none",
+        "ransac_thresh": 2.0,
+        "pnp_min_inliers": 30,
+        "max_features": 4000,
+        "min_conf": 0.7,
+        "robust_estimator": "usac"
+      },
+      "outcome": {
+        "window": [
+          41,
+          60
+        ],
+        "inlier_ratio": 0.07793870664255784,
+        "verdict": "rolled_back"
+      }
+    },
+    {
+      "decision_id": "d-0003",
+      "frame": 70,
+      "evidence": {
+        "inliers": 12.8,
+        "inlier_ratio": 0.154,
+        "blur_var": 1079.87,
+        "brightness": 218.7,
+        "contrast": 38.1,
+        "feature_count": 3117.9,
+        "tracked_landmarks": 2811.8,
+        "mean_reproj_px": 0.111,
+        "frame_to_frame_matches": 1434.6,
+        "texture": 41.63
+      },
+      "diagnosis": "dynamic_or_repetitive",
+      "decided_by": "rules",
+      "action": {
+        "tool": "retune_thresholds",
+        "args": {
+          "robust_estimator": "usac",
+          "ransac_thresh": 2.0
+        }
+      },
+      "config_before": {
+        "backend": "orb",
+        "preprocess": "none",
+        "ransac_thresh": 2.5,
+        "pnp_min_inliers": 30,
+        "max_features": 4000,
+        "min_conf": 0.7,
+        "robust_estimator": "ransac"
+      },
+      "config_after": {
+        "backend": "orb",
+        "preprocess": "none",
+        "ransac_thresh": 2.0,
+        "pnp_min_inliers": 30,
+        "max_features": 4000,
+        "min_conf": 0.7,
+        "robust_estimator": "usac"
+      },
+      "outcome": {
+        "window": [
+          61,
+          80
+        ],
+        "inlier_ratio": 0.16789638741700114,
+        "verdict": "rolled_back"
+      }
+    }
+  ]
+}

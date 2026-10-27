@@ -1,0 +1,80 @@
+{
+  "widgets": [
+    {
+      "type": "text",
+      "x": 0, "y": 0, "width": 24, "height": 1,
+      "properties": {
+        "markdown": "# AEGIS-SLAM — agent behaviour per job\nNamespace `AEGISSlam`, dimensions `JobId` + `InstanceType`. Published by `aegis/metrics.py` at the end of every job. `SecondsPerVideoMinute` < 60 means faster than real time — the measured value is far above it, and we do not claim real-time."
+      }
+    },
+    {
+      "type": "metric",
+      "x": 0, "y": 1, "width": 6, "height": 6,
+      "properties": {
+        "metrics": [
+          ["AEGISSlam", "Interventions", "JobId"],
+          ["AEGISSlam", "Rollbacks", "JobId"],
+          ["AEGISSlam", "DecisionsKept", "JobId"]
+        ],
+        "stat": "Sum", "region": "__REGION__", "period": 300,
+        "title": "Decisions taken / rolled back / kept"
+      }
+    },
+    {
+      "type": "metric",
+      "x": 6, "y": 1, "width": 6, "height": 6,
+      "properties": {
+        "metrics": [["AEGISSlam", "CoverageTrusted", "JobId"]],
+        "stat": "Average", "region": "__REGION__", "period": 300, "yAxis": "left",
+        "title": "Coverage — fraction of frames with a trusted pose"
+      }
+    },
+    {
+      "type": "metric",
+      "x": 12, "y": 1, "width": 6, "height": 6,
+      "properties": {
+        "metrics": [["AEGISSlam", "AteRmseM", "JobId"]],
+        "stat": "Average", "region": "__REGION__", "period": 300,
+        "title": "ATE RMSE (m) after Sim(3) alignment"
+      }
+    },
+    {
+      "type": "metric",
+      "x": 18, "y": 1, "width": 6, "height": 6,
+      "properties": {
+        "metrics": [["AEGISSlam", "MeanConfidence", "JobId"]],
+        "stat": "Average", "region": "__REGION__", "period": 300,
+        "title": "Mean per-frame confidence"
+      }
+    },
+    {
+      "type": "metric",
+      "x": 0, "y": 7, "width": 12, "height": 6,
+      "properties": {
+        "metrics": [["AEGISSlam", "SecondsPerVideoMinute", "JobId"], ["...", "InstanceType"]],
+        "stat": "Average", "region": "__REGION__", "period": 300,
+        "title": "Compute time per minute of video (Graviton vs x86 comparison)"
+      }
+    },
+    {
+      "type": "metric",
+      "x": 12, "y": 7, "width": 12, "height": 6,
+      "properties": {
+        "metrics": [["AEGISSlam", "ComputeCostPerVideoMinute", "JobId"]],
+        "stat": "Average", "region": "__REGION__", "period": 300,
+        "title": "USD per video-minute (only when instance_usd_per_hour is configured)"
+      }
+    },
+    {
+      "type": "log",
+      "x": 0, "y": 13, "width": 24, "height": 6,
+      "properties": {
+        "source": "arn:aws:logs:__REGION__:__ACCOUNT__:log-group:/aegis-slam/service:*",
+        "start": "-PT12H",
+        "region": {"default": "__REGION__"},
+        "query": "sort @timestamp desc | limit 50",
+        "stacked": false, "view": "table"
+      }
+    }
+  ]
+}

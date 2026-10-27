@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="560" font-family="Segoe UI, Arial, sans-serif" font-size="13">
+  <defs>
+    <marker id="a3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#2d3748"/>
+    </marker>
+    <style>
+      .ag { fill:#eaf3ff; stroke:#2b6cb0; stroke-width:1.6; rx:12; }
+      .bb { fill:#fffaf0; stroke:#b7791f; stroke-width:1.8; rx:8; }
+      .out { fill:#f0fff4; stroke:#2f855a; stroke-width:1.6; rx:12; }
+      .t { font-size:14px; font-weight:700; fill:#1a202c; }
+      .s { font-size:11px; fill:#4a5568; }
+      .e { stroke:#2d3748; stroke-width:1.4; fill:none; marker-end:url(#a3); }
+    </style>
+  </defs>
+
+  <text x="500" y="26" text-anchor="middle" class="t">AEGIS-SLAM multi-agent supervision — proposals on a blackboard, vetoes from safety, learning from the critic</text>
+
+  <!-- blackboard -->
+  <rect x="330" y="60" width="340" height="70" class="bb"/>
+  <text x="500" y="85" text-anchor="middle" class="t">BLACKBOARD</text>
+  <text x="500" y="103" text-anchor="middle" class="s">WindowStats · per-frame signals · corrupt-ratio · votes · events</text>
+
+  <!-- perception -->
+  <rect x="60" y="170" width="180" height="80" class="ag"/>
+  <text x="150" y="196" text-anchor="middle" class="t">Perception</text>
+  <text x="150" y="214" text-anchor="middle" class="s">health signals (OpenCV 5)</text>
+  <text x="150" y="229" text-anchor="middle" class="s">window aggregation</text>
+  <path class="e" d="M180,170 L360,130"/>
+  <text x="215" y="150" class="s">posts evidence</text>
+
+  <!-- diagnosis -->
+  <rect x="280" y="170" width="180" height="80" class="ag"/>
+  <text x="370" y="196" text-anchor="middle" class="t">Diagnosis</text>
+  <text x="370" y="214" text-anchor="middle" class="s">rule ladder → scored</text>
+  <text x="370" y="229" text-anchor="middle" class="s">proposals (conf 0.9)</text>
+  <path class="e" d="M440,170 L480,130"/>
+
+  <!-- planner (optional) -->
+  <rect x="500" y="170" width="180" height="80" class="ag" stroke-dasharray="6 3"/>
+  <text x="590" y="196" text-anchor="middle" class="t">Bedrock planner</text>
+  <text x="590" y="214" text-anchor="middle" class="s">optional 2nd opinion (0.6)</text>
+  <text x="590" y="229" text-anchor="middle" class="s">schema-validated or dropped</text>
+  <path class="e" d="M570,170 L530,130"/>
+
+  <!-- critic -->
+  <rect x="720" y="170" width="200" height="80" class="ag"/>
+  <text x="820" y="190" text-anchor="middle" class="t">Critic</text>
+  <text x="820" y="207" text-anchor="middle" class="s">independent outcome scoring</text>
+  <text x="820" y="222" text-anchor="middle" class="s">queues alternative after rollback</text>
+  <text x="820" y="237" text-anchor="middle" class="s">thrash guard (2 strikes)</text>
+  <path class="e" d="M790,170 L620,125"/>
+  <text x="672" y="152" class="s">alt proposal 0.95</text>
+
+  <!-- arbiter -->
+  <polygon points="500,290 610,340 500,390 390,340" fill="#fde8e8" stroke="#c53030" stroke-width="1.6"/>
+  <text x="500" y="330" text-anchor="middle" class="t">ARBITER</text>
+  <text x="500" y="348" text-anchor="middle" class="s">rank by confidence</text>
+  <text x="500" y="363" text-anchor="middle" class="s">first proposal passing safety wins</text>
+  <path class="e" d="M400,250 L455,295"/>
+  <path class="e" d="M590,250 L545,295"/>
+  <path class="e" d="M820,250 L820,275 L610,330"/>
+
+  <!-- safety -->
+  <rect x="80" y="300" width="200" height="80" class="ag"/>
+  <text x="180" y="326" text-anchor="middle" class="t">Safety officer</text>
+  <text x="180" y="344" text-anchor="middle" class="s">vetoes: re-bootstrap over corrupt</text>
+  <text x="180" y="359" text-anchor="middle" class="s">burst · switch cap · untrust on</text>
+  <text x="180" y="374" text-anchor="middle" class="s">healthy scene · thrash → untrusted</text>
+  <path class="e" d="M150,300 L430,127"/>
+  <path class="e" d="M280,340 L390,340"/>
+  <text x="305" y="332" class="s">veto / allow</text>
+
+  <!-- recovery + trace -->
+  <rect x="720" y="300" width="200" height="80" class="out"/>
+  <text x="820" y="326" text-anchor="middle" class="t">Recovery (act)</text>
+  <text x="820" y="344" text-anchor="middle" class="s">invoke bounded tool on</text>
+  <text x="820" y="359" text-anchor="middle" class="s">RuntimeConfig · map snapshot</text>
+  <text x="820" y="374" text-anchor="middle" class="s">for destructive actions</text>
+  <path class="e" d="M610,340 L720,340"/>
+
+  <rect x="330" y="440" width="340" height="70" class="out"/>
+  <text x="500" y="465" text-anchor="middle" class="t">Decision trace + verify</text>
+  <text x="500" y="483" text-anchor="middle" class="s">votes · veto reasons · decided_by = winning agent</text>
+  <text x="500" y="498" text-anchor="middle" class="s">next window → verdict: improved / rolled_back (map undo)</text>
+  <path class="e" d="M820,380 L820,475 L670,475"/>
+  <path class="e" d="M330,475 L180,475 L180,380"/>
+  <text x="200" y="430" class="s">verdict feeds critic</text>
+</svg>

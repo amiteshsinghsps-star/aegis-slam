@@ -1,0 +1,94 @@
+{
+  "schema_version": 1,
+  "summary": {
+    "num_decisions": 1,
+    "by_diagnosis": {
+      "unsafe_conditions": 1
+    },
+    "by_decider": {
+      "safety": 1
+    },
+    "by_verdict": {
+      "pending": 1
+    },
+    "num_rolled_back": 0,
+    "num_kept": 0,
+    "num_backend_switches": 0
+  },
+  "decisions": [
+    {
+      "decision_id": "d-0001",
+      "frame": 40,
+      "evidence": {
+        "inliers": 57.8,
+        "inlier_ratio": 0.195,
+        "blur_var": 1450.71,
+        "brightness": 213.5,
+        "contrast": 44.5,
+        "feature_count": 2200.1,
+        "tracked_landmarks": 1589.2,
+        "mean_reproj_px": 0.779,
+        "frame_to_frame_matches": 1265.5,
+        "texture": 54.88
+      },
+      "diagnosis": "unsafe_conditions",
+      "decided_by": "safety",
+      "action": {
+        "tool": "mark_segment_untrusted",
+        "args": {
+          "start": 21,
+          "end": 40
+        }
+      },
+      "config_before": {
+        "backend": "orb",
+        "preprocess": "none",
+        "ransac_thresh": 2.5,
+        "pnp_min_inliers": 30,
+        "max_features": 4000,
+        "min_conf": 0.7,
+        "robust_estimator": "ransac"
+      },
+      "config_after": {
+        "backend": "orb",
+        "preprocess": "none",
+        "ransac_thresh": 2.5,
+        "pnp_min_inliers": 30,
+        "max_features": 4000,
+        "min_conf": 0.7,
+        "robust_estimator": "ransac"
+      },
+      "outcome": {
+        "window": [
+          40,
+          40
+        ],
+        "verdict": "pending"
+      },
+      "votes": [
+        {
+          "agent": "diagnosis",
+          "tool": "rebootstrap",
+          "confidence": 0.9,
+          "vetoed": true,
+          "reason": "corrupt_ratio=0.45 \u2014 burst frames, waiting is recoverable; re-bootstrap is not"
+        },
+        {
+          "agent": "safety",
+          "tool": "mark_segment_untrusted",
+          "confidence": 0.2,
+          "vetoed": false,
+          "reason": "fallback"
+        }
+      ],
+      "trial": {},
+      "agents": [
+        "perception",
+        "diagnosis",
+        "critic",
+        "safety",
+        "arbiter"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "dataset": "Dataset/synthetic",
+  "frames_used": 120,
+  "reps": 3,
+  "arch": "AMD64",
+  "opencv": "5.0.0",
+  "components_ms": {
+    "bf_match_knn": {
+      "p50_ms": 0.208,
+      "p95_ms": 4.987,
+      "n": 3
+    },
+    "clahe": {
+      "p50_ms": 0.547,
+      "p95_ms": 1.197,
+      "n": 360
+    },
+    "findEssentialMat": {
+      "p50_ms": 0.187,
+      "p95_ms": 0.604,
+      "n": 3
+    },
+    "findFundamentalMat_ransac": {
+      "p50_ms": 0.051,
+      "p95_ms": 0.217,
+      "n": 3
+    },
+    "find_fundamental_usac": {
+      "p50_ms": 0.606,
+      "p95_ms": 1.028,
+      "n": 3
+    },
+    "health_signals": {
+      "p50_ms": 16.356,
+      "p95_ms": 23.255,
+      "n": 360
+    },
+    "nl_means": {
+      "p50_ms": 186.145,
+      "p95_ms": 207.512,
+      "n": 180
+    },
+    "orb_detect_compute": {
+      "p50_ms": 13.937,
+      "p95_ms": 17.168,
+      "n": 360
+    },
+    "solvePnPRansac": {
+      "p50_ms": 0.495,
+      "p95_ms": 0.665,
+      "n": 3
+    }
+  },
+  "sequential_sum_fps_est": 4.58
+}

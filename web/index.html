@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AEGIS-SLAM — self-healing visual SLAM</title>
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+  <header>
+    <div class="brand">
+      <h1>AEGIS-SLAM</h1>
+      <span class="tag">self-healing visual SLAM · OpenCV&nbsp;5 · AWS Graviton</span>
+    </div>
+    <div id="version-badge" class="badge" title="Proof of the OpenCV build that is running">
+      loading OpenCV version…
+    </div>
+  </header>
+
+  <main>
+    <!-- Upload / start -->
+    <section id="panel-start" class="card">
+      <h2>Start a run</h2>
+      <p class="hint">
+        A good capture: steady motion, even lighting, plenty of texture, no fast pans.
+        Upload a video or run the built-in synthetic sequence.
+      </p>
+      <div class="row">
+        <label>Mode
+          <select id="mode">
+            <option value="supervised">Supervised (self-healing agent)</option>
+            <option value="supervised_multi">Multi-agent (propose → veto → critic)</option>
+            <option value="baseline_classical">Baseline — classical features</option>
+            <option value="baseline_learned">Baseline — learned (ALIKED+LightGlue)</option>
+            <option value="ablation">Ablation — no verify/rollback</option>
+          </select>
+        </label>
+        <label>Source
+          <select id="source">
+            <option value="">Built-in synthetic dataset</option>
+            <option value="upload">Upload a video…</option>
+          </select>
+        </label>
+        <label>Scenario
+          <select id="scenario">
+            <option value="clean">Clean (no fault)</option>
+            <option value="motion_blur">Motion blur (35–65%)</option>
+            <option value="low_light">Low light (35–65%)</option>
+            <option value="texture_loss">Texture loss (35–65%)</option>
+            <option value="frame_drop">Frame drop (35–65%)</option>
+          </select>
+        </label>
+      </div>
+      <div class="row" id="upload-row" style="display:none">
+        <input type="file" id="file" accept="video/*" />
+      </div>
+      <div class="row" id="token-row" style="display:none">
+        <label>Demo token <input type="password" id="token" placeholder="shared judge token" /></label>
+      </div>
+      <div class="row" id="preset-row" style="display:none">
+        <button class="ghost preset" data-mode="supervised" id="preset-blur"
+          title="Recorded supervised run — does not use the Mode/Scenario selectors">Demo: motion blur</button>
+        <button class="ghost preset" data-mode="supervised" id="preset-cls"
+          title="Recorded supervised run — does not use the Mode/Scenario selectors">Demo: frame drop</button>
+        <button class="ghost preset" data-mode="supervised" id="preset-clean"
+          title="Recorded supervised run — does not use the Mode/Scenario selectors">Demo: clean</button>
+      </div>
+      <p class="privacy">Privacy: uploads are processed and auto-deleted after the retention window.
+        Do not upload footage you do not have the rights to share.</p>
+      <button id="start" class="primary">Run pipeline</button>
+    </section>
+
+    <!-- Live -->
+    <section id="panel-live" class="card" style="display:none">
+      <h2>Live run</h2>
+      <div class="statusbar">
+        <span id="job-id" class="mono"></span>
+        <span id="status"></span>
+        <div class="progress"><div id="progress-fill"></div></div>
+        <span id="progress-txt"></span>
+      </div>
+      <div class="grid2">
+        <div>
+          <h3>Trajectory (x–z, Sim(3)-aligned)</h3>
+          <canvas id="traj" width="440" height="440"></canvas>
+          <p class="privacy">Each run is normalized to its own axes, and live runs are
+            Sim(3)-aligned for scoring. On the same scene every mode follows the same
+            path — compare ATE, coverage and the decision feed, not the outline.</p>
+        </div>
+        <div>
+          <h3>Health timeline</h3>
+          <canvas id="health" width="440" height="120"></canvas>
+          <h3>Capture advice</h3>
+          <div id="advice" class="advice">—</div>
+        </div>
+      </div>
+
+      <!-- Approval card -->
+      <div id="approval" class="approval" style="display:none">
+        <h3>Agent requests a re-capture</h3>
+        <div class="approval-body">
+          <img id="approval-frame" alt="evidence frame" />
+          <div>
+            <p id="approval-reason"></p>
+            <pre id="approval-evidence" class="mono"></pre>
+            <button id="approve" class="primary">Approve re-capture</button>
+            <button id="skip" class="ghost">Skip (mark untrusted)</button>
+            <label class="reviewer">reviewer <input id="reviewer" placeholder="initials / session" /></label>
+            <span id="approval-timer"></span>
+            <p id="approval-audit" class="mono"></p>
+          </div>
+        </div>
+      </div>
+
+      <h3>Decision feed</h3>
+      <div id="feed" class="feed"></div>
+    </section>
+
+    <!-- Results -->
+    <section id="panel-result" class="card" style="display:none">
+      <h2>Report</h2>
+      <pre id="report" class="mono"></pre>
+      <a id="trace-dl" class="ghost" download>Download decision trace (JSON)</a>
+    </section>
+  </main>
+
+  <footer>
+    <span>AEGIS-SLAM · perception core reused from
+      <a href="https://github.com/KlrShaK/opencv-SimpleSLAM" rel="noopener">opencv-SimpleSLAM</a>
+      (Apache-2.0). Agent supervisor, health monitor, benchmark, service and UI are new.</span>
+  </footer>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>

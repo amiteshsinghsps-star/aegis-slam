@@ -1,0 +1,170 @@
+{
+  "schema_version": 1,
+  "summary": {
+    "num_decisions": 3,
+    "by_diagnosis": {
+      "dynamic_or_repetitive": 1,
+      "weak_geometry": 2
+    },
+    "by_decider": {
+      "rules": 3
+    },
+    "by_verdict": {
+      "not_verified": 3
+    },
+    "num_backend_switches": 0
+  },
+  "decisions": [
+    {
+      "decision_id": "d-0001",
+      "frame": 30,
+      "evidence": {
+        "inliers": 130.7,
+        "inlier_ratio": 0.349,
+        "blur_var": 1415.06,
+        "brightness": 214.6,
+        "contrast": 43.6,
+        "feature_count": 4000.6,
+        "tracked_landmarks": 2404.8,
+        "mean_reproj_px": 1.351,
+        "frame_to_frame_matches": 1940.2,
+        "texture": 54.0
+      },
+      "diagnosis": "dynamic_or_repetitive",
+      "decided_by": "rules",
+      "action": {
+        "tool": "retune_thresholds",
+        "args": {
+          "robust_estimator": "usac",
+          "ransac_thresh": 2.0
+        }
+      },
+      "config_before": {
+        "backend": "orb",
+        "preprocess": "none",
+        "ransac_thresh": 2.5,
+        "pnp_min_inliers": 30,
+        "max_features": 4000,
+        "min_conf": 0.7,
+        "robust_estimator": "ransac"
+      },
+      "config_after": {
+        "backend": "orb",
+        "preprocess": "none",
+        "ransac_thresh": 2.0,
+        "pnp_min_inliers": 30,
+        "max_features": 4000,
+        "min_conf": 0.7,
+        "robust_estimator": "usac"
+      },
+      "outcome": {
+        "window": [
+          21,
+          40
+        ],
+        "inlier_ratio": 0.3633759061174768,
+        "verdict": "not_verified"
+      }
+    },
+    {
+      "decision_id": "d-0002",
+      "frame": 50,
+      "evidence": {
+        "inliers": 32.0,
+        "inlier_ratio": 0.3,
+        "blur_var": 5643.47,
+        "brightness": 170.3,
+        "contrast": 53.7,
+        "feature_count": 4000.0,
+        "tracked_landmarks": 2682.9,
+        "mean_reproj_px": 0.497,
+        "frame_to_frame_matches": 1907.0,
+        "texture": 106.38
+      },
+      "diagnosis": "weak_geometry",
+      "decided_by": "rules",
+      "action": {
+        "tool": "retune_thresholds",
+        "args": {
+          "max_features": 6000
+        }
+      },
+      "config_before": {
+        "backend": "orb",
+        "preprocess": "none",
+        "ransac_thresh": 2.0,
+        "pnp_min_inliers": 30,
+        "max_features": 4000,
+        "min_conf": 0.7,
+        "robust_estimator": "usac"
+      },
+      "config_after": {
+        "backend": "orb",
+        "preprocess": "none",
+        "ransac_thresh": 2.0,
+        "pnp_min_inliers": 30,
+        "max_features": 6000,
+        "min_conf": 0.7,
+        "robust_estimator": "usac"
+      },
+      "outcome": {
+        "window": [
+          41,
+          60
+        ],
+        "inlier_ratio": 0.12202434917781435,
+        "verdict": "not_verified"
+      }
+    },
+    {
+      "decision_id": "d-0003",
+      "frame": 70,
+      "evidence": {
+        "inliers": 17.4,
+        "inlier_ratio": 0.186,
+        "blur_var": 1115.68,
+        "brightness": 218.7,
+        "contrast": 38.8,
+        "feature_count": 5549.1,
+        "tracked_landmarks": 2744.2,
+        "mean_reproj_px": 0.312,
+        "frame_to_frame_matches": 2491.8,
+        "texture": 43.18
+      },
+      "diagnosis": "weak_geometry",
+      "decided_by": "rules",
+      "action": {
+        "tool": "retune_thresholds",
+        "args": {
+          "max_features": 8000
+        }
+      },
+      "config_before": {
+        "backend": "orb",
+        "preprocess": "none",
+        "ransac_thresh": 2.0,
+        "pnp_min_inliers": 30,
+        "max_features": 6000,
+        "min_conf": 0.7,
+        "robust_estimator": "usac"
+      },
+      "config_after": {
+        "backend": "orb",
+        "preprocess": "none",
+        "ransac_thresh": 2.0,
+        "pnp_min_inliers": 30,
+        "max_features": 8000,
+        "min_conf": 0.7,
+        "robust_estimator": "usac"
+      },
+      "outcome": {
+        "window": [
+          61,
+          80
+        ],
+        "inlier_ratio": 0.3005013570159761,
+        "verdict": "not_verified"
+      }
+    }
+  ]
+}

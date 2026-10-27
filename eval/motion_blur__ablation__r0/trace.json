@@ -1,0 +1,170 @@
+{
+  "schema_version": 1,
+  "summary": {
+    "num_decisions": 3,
+    "by_diagnosis": {
+      "dynamic_or_repetitive": 1,
+      "weak_geometry": 2
+    },
+    "by_decider": {
+      "rules": 3
+    },
+    "by_verdict": {
+      "not_verified": 2,
+      "pending": 1
+    },
+    "num_backend_switches": 0
+  },
+  "decisions": [
+    {
+      "decision_id": "d-0001",
+      "frame": 40,
+      "evidence": {
+        "inliers": 107.6,
+        "inlier_ratio": 0.345,
+        "blur_var": 768.52,
+        "brightness": 213.5,
+        "contrast": 36.1,
+        "feature_count": 3252.1,
+        "tracked_landmarks": 1478.8,
+        "mean_reproj_px": 0.698,
+        "frame_to_frame_matches": 1956.5,
+        "texture": 43.93
+      },
+      "diagnosis": "dynamic_or_repetitive",
+      "decided_by": "rules",
+      "action": {
+        "tool": "retune_thresholds",
+        "args": {
+          "robust_estimator": "usac",
+          "ransac_thresh": 2.0
+        }
+      },
+      "config_before": {
+        "backend": "orb",
+        "preprocess": "none",
+        "ransac_thresh": 2.5,
+        "pnp_min_inliers": 30,
+        "max_features": 4000,
+        "min_conf": 0.7,
+        "robust_estimator": "ransac"
+      },
+      "config_after": {
+        "backend": "orb",
+        "preprocess": "none",
+        "ransac_thresh": 2.0,
+        "pnp_min_inliers": 30,
+        "max_features": 4000,
+        "min_conf": 0.7,
+        "robust_estimator": "usac"
+      },
+      "outcome": {
+        "window": [
+          31,
+          50
+        ],
+        "inlier_ratio": 0.25565985641170064,
+        "verdict": "not_verified"
+      }
+    },
+    {
+      "decision_id": "d-0002",
+      "frame": 60,
+      "evidence": {
+        "inliers": 25.4,
+        "inlier_ratio": 0.258,
+        "blur_var": 76.56,
+        "brightness": 214.0,
+        "contrast": 26.3,
+        "feature_count": 2600.1,
+        "tracked_landmarks": 1577.6,
+        "mean_reproj_px": 0.427,
+        "frame_to_frame_matches": 1436.3,
+        "texture": 32.33
+      },
+      "diagnosis": "weak_geometry",
+      "decided_by": "rules",
+      "action": {
+        "tool": "retune_thresholds",
+        "args": {
+          "max_features": 6000
+        }
+      },
+      "config_before": {
+        "backend": "orb",
+        "preprocess": "none",
+        "ransac_thresh": 2.0,
+        "pnp_min_inliers": 30,
+        "max_features": 4000,
+        "min_conf": 0.7,
+        "robust_estimator": "usac"
+      },
+      "config_after": {
+        "backend": "orb",
+        "preprocess": "none",
+        "ransac_thresh": 2.0,
+        "pnp_min_inliers": 30,
+        "max_features": 6000,
+        "min_conf": 0.7,
+        "robust_estimator": "usac"
+      },
+      "outcome": {
+        "window": [
+          51,
+          70
+        ],
+        "inlier_ratio": 0.1850824004398716,
+        "verdict": "not_verified"
+      }
+    },
+    {
+      "decision_id": "d-0003",
+      "frame": 80,
+      "evidence": {
+        "inliers": 16.9,
+        "inlier_ratio": 0.15,
+        "blur_var": 1421.01,
+        "brightness": 214.7,
+        "contrast": 43.8,
+        "feature_count": 5967.6,
+        "tracked_landmarks": 1605.9,
+        "mean_reproj_px": 0.0,
+        "frame_to_frame_matches": 3490.4,
+        "texture": 53.95
+      },
+      "diagnosis": "weak_geometry",
+      "decided_by": "rules",
+      "action": {
+        "tool": "retune_thresholds",
+        "args": {
+          "max_features": 8000
+        }
+      },
+      "config_before": {
+        "backend": "orb",
+        "preprocess": "none",
+        "ransac_thresh": 2.0,
+        "pnp_min_inliers": 30,
+        "max_features": 6000,
+        "min_conf": 0.7,
+        "robust_estimator": "usac"
+      },
+      "config_after": {
+        "backend": "orb",
+        "preprocess": "none",
+        "ransac_thresh": 2.0,
+        "pnp_min_inliers": 30,
+        "max_features": 8000,
+        "min_conf": 0.7,
+        "robust_estimator": "usac"
+      },
+      "outcome": {
+        "window": [
+          80,
+          80
+        ],
+        "verdict": "pending"
+      }
+    }
+  ]
+}

@@ -1,0 +1,120 @@
+{
+  "schema_version": 1,
+  "summary": {
+    "num_decisions": 2,
+    "by_diagnosis": {
+      "dynamic_or_repetitive": 2
+    },
+    "by_decider": {
+      "rules": 2
+    },
+    "by_verdict": {
+      "rolled_back": 2
+    },
+    "num_backend_switches": 0
+  },
+  "decisions": [
+    {
+      "decision_id": "d-0001",
+      "frame": 50,
+      "evidence": {
+        "inliers": 71.5,
+        "inlier_ratio": 0.302,
+        "blur_var": 1458.66,
+        "brightness": 213.9,
+        "contrast": 44.5,
+        "feature_count": 4000.1,
+        "tracked_landmarks": 1490.0,
+        "mean_reproj_px": 1.469,
+        "frame_to_frame_matches": 2484.3,
+        "texture": 55.2
+      },
+      "diagnosis": "dynamic_or_repetitive",
+      "decided_by": "rules",
+      "action": {
+        "tool": "retune_thresholds",
+        "args": {
+          "robust_estimator": "usac",
+          "ransac_thresh": 2.0
+        }
+      },
+      "config_before": {
+        "backend": "orb",
+        "preprocess": "none",
+        "ransac_thresh": 2.5,
+        "pnp_min_inliers": 30,
+        "max_features": 4000,
+        "min_conf": 0.7,
+        "robust_estimator": "ransac"
+      },
+      "config_after": {
+        "backend": "orb",
+        "preprocess": "none",
+        "ransac_thresh": 2.0,
+        "pnp_min_inliers": 30,
+        "max_features": 4000,
+        "min_conf": 0.7,
+        "robust_estimator": "usac"
+      },
+      "outcome": {
+        "window": [
+          41,
+          60
+        ],
+        "inlier_ratio": 0.26564710846629935,
+        "verdict": "rolled_back"
+      }
+    },
+    {
+      "decision_id": "d-0002",
+      "frame": 70,
+      "evidence": {
+        "inliers": 42.2,
+        "inlier_ratio": 0.328,
+        "blur_var": 1434.6,
+        "brightness": 214.4,
+        "contrast": 44.1,
+        "feature_count": 4000.1,
+        "tracked_landmarks": 1610.7,
+        "mean_reproj_px": 0.977,
+        "frame_to_frame_matches": 2370.4,
+        "texture": 54.31
+      },
+      "diagnosis": "dynamic_or_repetitive",
+      "decided_by": "rules",
+      "action": {
+        "tool": "retune_thresholds",
+        "args": {
+          "robust_estimator": "usac",
+          "ransac_thresh": 2.0
+        }
+      },
+      "config_before": {
+        "backend": "orb",
+        "preprocess": "none",
+        "ransac_thresh": 2.5,
+        "pnp_min_inliers": 30,
+        "max_features": 4000,
+        "min_conf": 0.7,
+        "robust_estimator": "ransac"
+      },
+      "config_after": {
+        "backend": "orb",
+        "preprocess": "none",
+        "ransac_thresh": 2.0,
+        "pnp_min_inliers": 30,
+        "max_features": 4000,
+        "min_conf": 0.7,
+        "robust_estimator": "usac"
+      },
+      "outcome": {
+        "window": [
+          61,
+          80
+        ],
+        "inlier_ratio": 0.3531550912775899,
+        "verdict": "rolled_back"
+      }
+    }
+  ]
+}

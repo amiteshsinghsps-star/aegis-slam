@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "summary": {
+    "num_decisions": 0,
+    "by_diagnosis": {},
+    "by_decider": {},
+    "by_verdict": {},
+    "num_backend_switches": 0
+  },
+  "decisions": []
+}

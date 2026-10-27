@@ -1,0 +1,69 @@
+{
+  "schema_version": 1,
+  "summary": {
+    "num_decisions": 1,
+    "by_diagnosis": {
+      "dynamic_or_repetitive": 1
+    },
+    "by_decider": {
+      "rules": 1
+    },
+    "by_verdict": {
+      "rolled_back": 1
+    },
+    "num_backend_switches": 0
+  },
+  "decisions": [
+    {
+      "decision_id": "d-0001",
+      "frame": 70,
+      "evidence": {
+        "inliers": 41.5,
+        "inlier_ratio": 0.299,
+        "blur_var": 1420.33,
+        "brightness": 214.4,
+        "contrast": 43.8,
+        "feature_count": 3962.9,
+        "tracked_landmarks": 1755.0,
+        "mean_reproj_px": 1.413,
+        "frame_to_frame_matches": 2227.2,
+        "texture": 53.97
+      },
+      "diagnosis": "dynamic_or_repetitive",
+      "decided_by": "rules",
+      "action": {
+        "tool": "retune_thresholds",
+        "args": {
+          "robust_estimator": "usac",
+          "ransac_thresh": 2.0
+        }
+      },
+      "config_before": {
+        "backend": "orb",
+        "preprocess": "none",
+        "ransac_thresh": 2.5,
+        "pnp_min_inliers": 30,
+        "max_features": 4000,
+        "min_conf": 0.7,
+        "robust_estimator": "ransac"
+      },
+      "config_after": {
+        "backend": "orb",
+        "preprocess": "none",
+        "ransac_thresh": 2.0,
+        "pnp_min_inliers": 30,
+        "max_features": 4000,
+        "min_conf": 0.7,
+        "robust_estimator": "usac"
+      },
+      "outcome": {
+        "window": [
+          61,
+          80
+        ],
+        "inlier_ratio": 0.23137648309921074,
+        "verdict": "rolled_back"
+      }
+    }
+  ]
+}

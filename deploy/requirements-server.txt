@@ -1,0 +1,20 @@
+# AEGIS-SLAM service dependencies (pinned; headless OpenCV 5).
+# This is the lean, always-installable set for the Graviton runtime image.
+# The optional accelerator stack (pyceres, pycolmap, torch, lightglue) is
+# installed best-effort in the Dockerfile and is NOT required for the core
+# self-healing pipeline, which degrades to a pure OpenCV-5 path without them.
+
+opencv-python-headless==5.0.0.93
+numpy==2.2.6
+scipy==1.15.3
+matplotlib==3.10.3
+tqdm==4.67.1
+Pillow==11.3.0
+
+# Web service
+fastapi==0.115.6
+uvicorn[standard]==0.34.0
+python-multipart==0.0.20
+
+# AWS integration (optional at runtime; used only when configured)
+boto3==1.35.90

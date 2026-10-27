@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="420" font-family="Segoe UI, Arial, sans-serif" font-size="13">
+  <defs>
+    <marker id="arr2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#2d3748"/>
+    </marker>
+    <style>
+      .st { fill:#eaf3ff; stroke:#2b6cb0; stroke-width:1.6; rx:12; }
+      .ok { fill:#f0fff4; stroke:#2f855a; stroke-width:1.6; rx:12; }
+      .rb { fill:#fff5f5; stroke:#c53030; stroke-width:1.6; rx:12; }
+      .t  { font-size:14px; font-weight:700; fill:#1a202c; }
+      .s  { font-size:11px; fill:#4a5568; }
+      .e  { stroke:#2d3748; stroke-width:1.5; fill:none; marker-end:url(#arr2); }
+    </style>
+  </defs>
+
+  <text x="490" y="28" text-anchor="middle" class="t">Agent supervisor loop — every cadence window (OpenCV-5 evidence gates every transition)</text>
+
+  <rect x="30"  y="80" width="150" height="80" class="st"/>
+  <text x="105" y="108" text-anchor="middle" class="t">OBSERVE</text>
+  <text x="105" y="126" text-anchor="middle" class="s">window of</text>
+  <text x="105" y="140" text-anchor="middle" class="s">HealthSignals</text>
+
+  <rect x="230" y="80" width="150" height="80" class="st"/>
+  <text x="305" y="108" text-anchor="middle" class="t">DIAGNOSE</text>
+  <text x="305" y="126" text-anchor="middle" class="s">rules table →</text>
+  <text x="305" y="140" text-anchor="middle" class="s">failure mode</text>
+
+  <rect x="430" y="80" width="150" height="80" class="st"/>
+  <text x="505" y="108" text-anchor="middle" class="t">DECIDE</text>
+  <text x="505" y="126" text-anchor="middle" class="s">cooldowns ·</text>
+  <text x="505" y="140" text-anchor="middle" class="s">switch cap · (opt. LLM)</text>
+
+  <rect x="630" y="80" width="150" height="80" class="st"/>
+  <text x="705" y="108" text-anchor="middle" class="t">ACT</text>
+  <text x="705" y="126" text-anchor="middle" class="s">bounded tool on</text>
+  <text x="705" y="140" text-anchor="middle" class="s">RuntimeConfig</text>
+
+  <rect x="830" y="80" width="120" height="80" class="st"/>
+  <text x="890" y="108" text-anchor="middle" class="t">LOG</text>
+  <text x="890" y="126" text-anchor="middle" class="s">decision</text>
+  <text x="890" y="140" text-anchor="middle" class="s">trace.json</text>
+
+  <path class="e" d="M180,120 L230,120"/>
+  <path class="e" d="M380,120 L430,120"/>
+  <path class="e" d="M580,120 L630,120"/>
+  <path class="e" d="M780,120 L830,120"/>
+
+  <!-- verify diamond -->
+  <polygon points="505,215 620,265 505,315 390,265" fill="#fffaf0" stroke="#b7791f" stroke-width="1.6"/>
+  <text x="505" y="258" text-anchor="middle" class="t">VERIFY</text>
+  <text x="505" y="276" text-anchor="middle" class="s">next window</text>
+  <text x="505" y="291" text-anchor="middle" class="s">health vs before</text>
+
+  <rect x="700" y="235" width="150" height="60" class="ok"/>
+  <text x="775" y="260" text-anchor="middle" class="t">KEEP</text>
+  <text x="775" y="278" text-anchor="middle" class="s">verdict: improved</text>
+
+  <rect x="120" y="235" width="160" height="60" class="rb"/>
+  <text x="200" y="260" text-anchor="middle" class="t">ROLLBACK</text>
+  <text x="200" y="278" text-anchor="middle" class="s">restore config_before</text>
+
+  <path class="e" d="M890,160 L890,200 L620,255"/>
+  <path class="e" d="M620,275 L700,265"/>
+  <path class="e" d="M390,265 L280,265"/>
+  <text x="655" y="245" class="s">better</text>
+  <text x="330" y="255" class="s">not better</text>
+
+  <path class="e" d="M200,295 L200,340 L105,340 L105,160"/>
+  <text x="150" y="332" class="s">config restored → continue observing</text>
+
+  <path class="e" d="M505,215 L505,160"/>
+  <text x="512" y="195" class="s">pending action</text>
+
+  <!-- safety rails -->
+  <rect x="330" y="360" width="620" height="44" rx="10" fill="#edf2f7" stroke="#4a5568" stroke-width="1.2"/>
+  <text x="640" y="378" text-anchor="middle" class="s">Safety rails: cooldown between actions · ≤6 backend switches/min · no destructive tools · re-capture needs human approval ·</text>
+  <text x="640" y="394" text-anchor="middle" class="s">healthy windows auto-restore baseline (false-intervention suppression) · LLM output only kept if it validates against the tool schema</text>
+</svg>

@@ -1,0 +1,51 @@
+{
+  "mode": "supervised",
+  "frames": 90,
+  "wall_seconds": 60.67,
+  "seed": 1,
+  "source_fps": 30.0,
+  "initialised": true,
+  "num_keyframes": 16,
+  "num_landmarks": 187,
+  "poses_estimated": 86,
+  "coverage_trusted": 1.0,
+  "untrusted_segments": [],
+  "ate": {
+    "rmse": 0.24176156592492373,
+    "mean": 0.2277692015705449,
+    "median": 0.21575545150753628,
+    "max": 0.5584328620392479,
+    "scale": 0.025562343775657997,
+    "n": 86
+  },
+  "recapture_requests": 0,
+  "confidence": {
+    "mean": 0.472719258245934,
+    "p10": 0.3966666666666667,
+    "min": 0.0
+  },
+  "trace_summary": {
+    "num_decisions": 3,
+    "by_diagnosis": {
+      "dynamic_or_repetitive": 3
+    },
+    "by_decider": {
+      "rules": 3
+    },
+    "by_verdict": {
+      "rolled_back": 3
+    },
+    "num_rolled_back": 3,
+    "num_kept": 0,
+    "num_backend_switches": 0
+  },
+  "final_config": {
+    "backend": "orb",
+    "preprocess": "none",
+    "ransac_thresh": 2.5,
+    "pnp_min_inliers": 30,
+    "max_features": 4000,
+    "min_conf": 0.7,
+    "robust_estimator": "ransac"
+  }
+}

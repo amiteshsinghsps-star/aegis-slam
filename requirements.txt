@@ -1,0 +1,21 @@
+# Base SLAM stack (OpenCV 5, pinned)
+opencv-python-headless==5.0.0.93
+numpy==2.2.6
+scipy==1.15.3
+matplotlib==3.10.3
+pandas==2.2.3
+tqdm==4.67.1
+Pillow==11.3.0
+lz4==4.4.4
+
+# Service + UI (AEGIS-SLAM)
+fastapi==0.115.6
+uvicorn[standard]==0.34.0
+python-multipart==0.0.20
+boto3==1.35.90
+
+# Optional accelerator / learned-feature stack. AEGIS-SLAM runs without these
+# on a pure OpenCV-5 path; install to enable the ALIKED backend and Ceres BA.
+#   pip install torch --index-url https://download.pytorch.org/whl/cpu
+#   pip install "lightglue @ git+https://github.com/cvg/LightGlue.git"
+#   pip install pyceres pycolmap

@@ -1,0 +1,206 @@
+{
+  "frames": 90,
+  "runs": 3,
+  "table": [
+    {
+      "scenario": "motion_blur",
+      "condition": "baseline_classical",
+      "ate_mean": 0.1644,
+      "ate_std": 0.0653,
+      "coverage_mean": 1.0,
+      "recover_mean": 19.3,
+      "not_recovered": 0,
+      "decisions_mean": 0,
+      "backend_switches_mean": 0,
+      "rolled_back_mean": 0
+    },
+    {
+      "scenario": "motion_blur",
+      "condition": "supervised",
+      "ate_mean": 0.193,
+      "ate_std": 0.0865,
+      "coverage_mean": 1.0,
+      "recover_mean": 12.7,
+      "not_recovered": 0,
+      "decisions_mean": 3,
+      "backend_switches_mean": 0,
+      "rolled_back_mean": 2.3
+    },
+    {
+      "scenario": "motion_blur",
+      "condition": "supervised_multi",
+      "ate_mean": 0.1566,
+      "ate_std": 0.0544,
+      "coverage_mean": 1.0,
+      "recover_mean": 10.7,
+      "not_recovered": 0,
+      "decisions_mean": 3,
+      "backend_switches_mean": 0,
+      "rolled_back_mean": 2
+    },
+    {
+      "scenario": "motion_blur",
+      "condition": "ablation",
+      "ate_mean": 0.204,
+      "ate_std": 0.0781,
+      "coverage_mean": 1.0,
+      "recover_mean": 4.5,
+      "not_recovered": 1,
+      "decisions_mean": 3,
+      "backend_switches_mean": 0,
+      "rolled_back_mean": 0
+    },
+    {
+      "scenario": "low_light",
+      "condition": "baseline_classical",
+      "ate_mean": 0.1794,
+      "ate_std": 0.0807,
+      "coverage_mean": 1.0,
+      "recover_mean": 11,
+      "not_recovered": 0,
+      "decisions_mean": 0,
+      "backend_switches_mean": 0,
+      "rolled_back_mean": 0
+    },
+    {
+      "scenario": "low_light",
+      "condition": "supervised",
+      "ate_mean": 0.2408,
+      "ate_std": 0.1081,
+      "coverage_mean": 1.0,
+      "recover_mean": 2,
+      "not_recovered": 1,
+      "decisions_mean": 2.3,
+      "backend_switches_mean": 0,
+      "rolled_back_mean": 2
+    },
+    {
+      "scenario": "low_light",
+      "condition": "supervised_multi",
+      "ate_mean": 0.2363,
+      "ate_std": 0.1071,
+      "coverage_mean": 1.0,
+      "recover_mean": 2,
+      "not_recovered": 1,
+      "decisions_mean": 2.3,
+      "backend_switches_mean": 0,
+      "rolled_back_mean": 2
+    },
+    {
+      "scenario": "low_light",
+      "condition": "ablation",
+      "ate_mean": 0.1962,
+      "ate_std": 0.0753,
+      "coverage_mean": 1.0,
+      "recover_mean": 2,
+      "not_recovered": 1,
+      "decisions_mean": 2.3,
+      "backend_switches_mean": 0,
+      "rolled_back_mean": 0
+    },
+    {
+      "scenario": "texture_loss",
+      "condition": "baseline_classical",
+      "ate_mean": 0.2001,
+      "ate_std": 0.0496,
+      "coverage_mean": 1.0,
+      "recover_mean": 17,
+      "not_recovered": 0,
+      "decisions_mean": 0,
+      "backend_switches_mean": 0,
+      "rolled_back_mean": 0
+    },
+    {
+      "scenario": "texture_loss",
+      "condition": "supervised",
+      "ate_mean": 0.1971,
+      "ate_std": 0.0593,
+      "coverage_mean": 1.0,
+      "recover_mean": 2,
+      "not_recovered": 1,
+      "decisions_mean": 2.3,
+      "backend_switches_mean": 0,
+      "rolled_back_mean": 2.3
+    },
+    {
+      "scenario": "texture_loss",
+      "condition": "supervised_multi",
+      "ate_mean": 0.1973,
+      "ate_std": 0.0533,
+      "coverage_mean": 1.0,
+      "recover_mean": 2,
+      "not_recovered": 1,
+      "decisions_mean": 2.3,
+      "backend_switches_mean": 0,
+      "rolled_back_mean": 2.3
+    },
+    {
+      "scenario": "texture_loss",
+      "condition": "ablation",
+      "ate_mean": 0.2599,
+      "ate_std": 0.1048,
+      "coverage_mean": 1.0,
+      "recover_mean": 2,
+      "not_recovered": 1,
+      "decisions_mean": 2.3,
+      "backend_switches_mean": 0,
+      "rolled_back_mean": 0
+    },
+    {
+      "scenario": "frame_drop",
+      "condition": "baseline_classical",
+      "ate_mean": 0.2125,
+      "ate_std": 0.0616,
+      "coverage_mean": 1.0,
+      "recover_mean": 23.3,
+      "not_recovered": 0,
+      "decisions_mean": 0,
+      "backend_switches_mean": 0,
+      "rolled_back_mean": 0
+    },
+    {
+      "scenario": "frame_drop",
+      "condition": "supervised",
+      "ate_mean": 0.1903,
+      "ate_std": 0.0707,
+      "coverage_mean": 1.0,
+      "recover_mean": 23.3,
+      "not_recovered": 0,
+      "decisions_mean": 2.3,
+      "backend_switches_mean": 0,
+      "rolled_back_mean": 1.7
+    },
+    {
+      "scenario": "frame_drop",
+      "condition": "supervised_multi",
+      "ate_mean": 0.2207,
+      "ate_std": 0.0682,
+      "coverage_mean": 0.926,
+      "recover_mean": 11.5,
+      "not_recovered": 1,
+      "decisions_mean": 2.7,
+      "backend_switches_mean": 0,
+      "rolled_back_mean": 1.7
+    },
+    {
+      "scenario": "frame_drop",
+      "condition": "ablation",
+      "ate_mean": 0.2969,
+      "ate_std": 0.1161,
+      "coverage_mean": 1.0,
+      "recover_mean": 11.5,
+      "not_recovered": 1,
+      "decisions_mean": 2.3,
+      "backend_switches_mean": 0,
+      "rolled_back_mean": 0
+    }
+  ],
+  "false_intervention_clean": {
+    "clean_decisions_per_run": [
+      2,
+      3,
+      3
+    ],
+    "mean": 2.67
+  }
+}

@@ -1,0 +1,16 @@
+# Keep datasets, past runs, caches and local artifacts out of the image and
+# out of the cloud-scan/code bundle.
+Dataset/
+runs/
+eval/
+eval_multi/
+media/
+**/__pycache__/
+*.pyc
+.pytest_cache/
+.git/
+node_modules/
+*.mp4
+*.avi
+*.mov
+*.mkv

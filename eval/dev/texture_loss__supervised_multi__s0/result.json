@@ -1,0 +1,62 @@
+{
+  "mode": "supervised_multi",
+  "frames": 60,
+  "wall_seconds": 42.61,
+  "seed": 0,
+  "source_fps": 30.0,
+  "initialised": true,
+  "num_keyframes": 11,
+  "num_landmarks": 1922,
+  "poses_estimated": 57,
+  "coverage_trusted": 1.0,
+  "coverage_estimated": 0.95,
+  "untrusted_segments": [],
+  "ate": {
+    "rmse": 0.10704307717902205,
+    "mean": 0.09710253870054573,
+    "median": 0.09194194059387417,
+    "max": 0.21716716446401063,
+    "scale": 0.04213535827089729,
+    "n": 57
+  },
+  "ate_all": {
+    "rmse": 0.10680508074503269,
+    "mean": 0.09632643689625188,
+    "median": 0.09312849788504737,
+    "max": 0.22255611344567905,
+    "scale": 1.0075625371698618,
+    "n": 59
+  },
+  "ate_trusted": {
+    "rmse": 0.10704307717902209,
+    "mean": 0.09710253870075397,
+    "median": 0.09194194059475876,
+    "max": 0.21716716445562592,
+    "scale": 0.9999999999875955,
+    "n": 57
+  },
+  "recapture_requests": 0,
+  "confidence": {
+    "mean": 0.8156561351309808,
+    "p10": 0.6182658185470372,
+    "min": 0.0
+  },
+  "trace_summary": {
+    "num_decisions": 0,
+    "by_diagnosis": {},
+    "by_decider": {},
+    "by_verdict": {},
+    "num_rolled_back": 0,
+    "num_kept": 0,
+    "num_backend_switches": 0
+  },
+  "final_config": {
+    "backend": "orb",
+    "preprocess": "none",
+    "ransac_thresh": 2.5,
+    "pnp_min_inliers": 30,
+    "max_features": 4000,
+    "min_conf": 0.7,
+    "robust_estimator": "ransac"
+  }
+}

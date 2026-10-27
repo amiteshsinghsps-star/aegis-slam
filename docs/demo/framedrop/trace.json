@@ -1,0 +1,118 @@
+{
+  "schema_version": 1,
+  "summary": {
+    "num_decisions": 2,
+    "by_diagnosis": {
+      "corrupted_input": 2
+    },
+    "by_decider": {
+      "rules": 2
+    },
+    "by_verdict": {
+      "pending": 2
+    },
+    "num_backend_switches": 0
+  },
+  "decisions": [
+    {
+      "decision_id": "d-0001",
+      "frame": 40,
+      "evidence": {
+        "inliers": 100.1,
+        "inlier_ratio": 0.229,
+        "blur_var": 729.42,
+        "brightness": 113.6,
+        "contrast": 22.5,
+        "feature_count": 2000.0,
+        "tracked_landmarks": 1478.0,
+        "mean_reproj_px": 0.698,
+        "frame_to_frame_matches": 1291.7,
+        "texture": 27.75
+      },
+      "diagnosis": "corrupted_input",
+      "decided_by": "rules",
+      "action": {
+        "tool": "mark_segment_untrusted",
+        "args": {
+          "start": 1,
+          "end": 40
+        }
+      },
+      "config_before": {
+        "backend": "orb",
+        "preprocess": "none",
+        "ransac_thresh": 2.5,
+        "pnp_min_inliers": 30,
+        "max_features": 4000,
+        "min_conf": 0.7,
+        "robust_estimator": "ransac"
+      },
+      "config_after": {
+        "backend": "orb",
+        "preprocess": "none",
+        "ransac_thresh": 2.5,
+        "pnp_min_inliers": 30,
+        "max_features": 4000,
+        "min_conf": 0.7,
+        "robust_estimator": "ransac"
+      },
+      "outcome": {
+        "window": [
+          40,
+          40
+        ],
+        "verdict": "pending"
+      }
+    },
+    {
+      "decision_id": "d-0002",
+      "frame": 60,
+      "evidence": {
+        "inliers": 1.4,
+        "inlier_ratio": 0.028,
+        "blur_var": 0.0,
+        "brightness": 14.0,
+        "contrast": 0.0,
+        "feature_count": 400.0,
+        "tracked_landmarks": 1478.0,
+        "mean_reproj_px": 0.0,
+        "frame_to_frame_matches": 116.9,
+        "texture": 0.0
+      },
+      "diagnosis": "corrupted_input",
+      "decided_by": "rules",
+      "action": {
+        "tool": "mark_segment_untrusted",
+        "args": {
+          "start": 21,
+          "end": 60
+        }
+      },
+      "config_before": {
+        "backend": "orb",
+        "preprocess": "none",
+        "ransac_thresh": 2.5,
+        "pnp_min_inliers": 30,
+        "max_features": 4000,
+        "min_conf": 0.7,
+        "robust_estimator": "ransac"
+      },
+      "config_after": {
+        "backend": "orb",
+        "preprocess": "none",
+        "ransac_thresh": 2.5,
+        "pnp_min_inliers": 30,
+        "max_features": 4000,
+        "min_conf": 0.7,
+        "robust_estimator": "ransac"
+      },
+      "outcome": {
+        "window": [
+          60,
+          60
+        ],
+        "verdict": "pending"
+      }
+    }
+  ]
+}

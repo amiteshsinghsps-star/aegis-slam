@@ -1,0 +1,418 @@
+{
+  "sign_convention": "positive \u0394ATE% = worse",
+  "source": "eval/dev/results.json",
+  "seeds": [
+    0
+  ],
+  "by_condition": {
+    "supervised": {
+      "n": 4,
+      "mean_delta_pct": 2.46,
+      "median_delta_pct": 0.0,
+      "ci95_low": 0.0,
+      "ci95_high": 7.37,
+      "wilcoxon_p": 1.0,
+      "wilcoxon_method": "scipy",
+      "wins": 0,
+      "ties": 3,
+      "losses": 1,
+      "mean_ate_base": 0.0905,
+      "mean_ate_cond": 0.0922,
+      "mean_coverage_cond": 1.0,
+      "pairs": [
+        {
+          "seed": 0,
+          "base": 0.1044,
+          "cond": 0.1044,
+          "delta_pct": 0.0
+        },
+        {
+          "seed": 0,
+          "base": 0.0806,
+          "cond": 0.0806,
+          "delta_pct": 0.0
+        },
+        {
+          "seed": 0,
+          "base": 0.1068,
+          "cond": 0.1068,
+          "delta_pct": 0.0
+        },
+        {
+          "seed": 0,
+          "base": 0.0701,
+          "cond": 0.077,
+          "delta_pct": 9.83
+        }
+      ]
+    },
+    "supervised_multi": {
+      "n": 4,
+      "mean_delta_pct": 0.0,
+      "median_delta_pct": 0.0,
+      "ci95_low": 0.0,
+      "ci95_high": 0.0,
+      "wilcoxon_p": 1.0,
+      "wilcoxon_method": "no-nonzero",
+      "wins": 0,
+      "ties": 4,
+      "losses": 0,
+      "mean_ate_base": 0.0905,
+      "mean_ate_cond": 0.0905,
+      "mean_coverage_cond": 0.917,
+      "pairs": [
+        {
+          "seed": 0,
+          "base": 0.1044,
+          "cond": 0.1044,
+          "delta_pct": 0.0
+        },
+        {
+          "seed": 0,
+          "base": 0.0806,
+          "cond": 0.0806,
+          "delta_pct": 0.0
+        },
+        {
+          "seed": 0,
+          "base": 0.1068,
+          "cond": 0.1068,
+          "delta_pct": 0.0
+        },
+        {
+          "seed": 0,
+          "base": 0.0701,
+          "cond": 0.0701,
+          "delta_pct": 0.0
+        }
+      ]
+    },
+    "ablation": {
+      "n": 4,
+      "mean_delta_pct": 83.07,
+      "median_delta_pct": 0.0,
+      "ci95_low": 0.0,
+      "ci95_high": 249.22,
+      "wilcoxon_p": 1.0,
+      "wilcoxon_method": "scipy",
+      "wins": 0,
+      "ties": 3,
+      "losses": 1,
+      "mean_ate_base": 0.0905,
+      "mean_ate_cond": 0.1487,
+      "mean_coverage_cond": 1.0,
+      "pairs": [
+        {
+          "seed": 0,
+          "base": 0.1044,
+          "cond": 0.1044,
+          "delta_pct": 0.0
+        },
+        {
+          "seed": 0,
+          "base": 0.0806,
+          "cond": 0.0806,
+          "delta_pct": 0.0
+        },
+        {
+          "seed": 0,
+          "base": 0.1068,
+          "cond": 0.1068,
+          "delta_pct": 0.0
+        },
+        {
+          "seed": 0,
+          "base": 0.0701,
+          "cond": 0.3032,
+          "delta_pct": 332.29
+        }
+      ]
+    }
+  },
+  "by_scenario": {
+    "motion_blur": {
+      "supervised": {
+        "n": 1,
+        "mean_delta_pct": 0.0,
+        "median_delta_pct": 0.0,
+        "ci95_low": null,
+        "ci95_high": null,
+        "wilcoxon_p": 1.0,
+        "wilcoxon_method": "no-nonzero",
+        "wins": 0,
+        "ties": 1,
+        "losses": 0,
+        "mean_ate_base": 0.1044,
+        "mean_ate_cond": 0.1044,
+        "mean_coverage_cond": 1.0,
+        "pairs": [
+          {
+            "seed": 0,
+            "base": 0.1044,
+            "cond": 0.1044,
+            "delta_pct": 0.0
+          }
+        ]
+      },
+      "supervised_multi": {
+        "n": 1,
+        "mean_delta_pct": 0.0,
+        "median_delta_pct": 0.0,
+        "ci95_low": null,
+        "ci95_high": null,
+        "wilcoxon_p": 1.0,
+        "wilcoxon_method": "no-nonzero",
+        "wins": 0,
+        "ties": 1,
+        "losses": 0,
+        "mean_ate_base": 0.1044,
+        "mean_ate_cond": 0.1044,
+        "mean_coverage_cond": 1.0,
+        "pairs": [
+          {
+            "seed": 0,
+            "base": 0.1044,
+            "cond": 0.1044,
+            "delta_pct": 0.0
+          }
+        ]
+      },
+      "ablation": {
+        "n": 1,
+        "mean_delta_pct": 0.0,
+        "median_delta_pct": 0.0,
+        "ci95_low": null,
+        "ci95_high": null,
+        "wilcoxon_p": 1.0,
+        "wilcoxon_method": "no-nonzero",
+        "wins": 0,
+        "ties": 1,
+        "losses": 0,
+        "mean_ate_base": 0.1044,
+        "mean_ate_cond": 0.1044,
+        "mean_coverage_cond": 1.0,
+        "pairs": [
+          {
+            "seed": 0,
+            "base": 0.1044,
+            "cond": 0.1044,
+            "delta_pct": 0.0
+          }
+        ]
+      }
+    },
+    "low_light": {
+      "supervised": {
+        "n": 1,
+        "mean_delta_pct": 0.0,
+        "median_delta_pct": 0.0,
+        "ci95_low": null,
+        "ci95_high": null,
+        "wilcoxon_p": 1.0,
+        "wilcoxon_method": "no-nonzero",
+        "wins": 0,
+        "ties": 1,
+        "losses": 0,
+        "mean_ate_base": 0.0806,
+        "mean_ate_cond": 0.0806,
+        "mean_coverage_cond": 1.0,
+        "pairs": [
+          {
+            "seed": 0,
+            "base": 0.0806,
+            "cond": 0.0806,
+            "delta_pct": 0.0
+          }
+        ]
+      },
+      "supervised_multi": {
+        "n": 1,
+        "mean_delta_pct": 0.0,
+        "median_delta_pct": 0.0,
+        "ci95_low": null,
+        "ci95_high": null,
+        "wilcoxon_p": 1.0,
+        "wilcoxon_method": "no-nonzero",
+        "wins": 0,
+        "ties": 1,
+        "losses": 0,
+        "mean_ate_base": 0.0806,
+        "mean_ate_cond": 0.0806,
+        "mean_coverage_cond": 1.0,
+        "pairs": [
+          {
+            "seed": 0,
+            "base": 0.0806,
+            "cond": 0.0806,
+            "delta_pct": 0.0
+          }
+        ]
+      },
+      "ablation": {
+        "n": 1,
+        "mean_delta_pct": 0.0,
+        "median_delta_pct": 0.0,
+        "ci95_low": null,
+        "ci95_high": null,
+        "wilcoxon_p": 1.0,
+        "wilcoxon_method": "no-nonzero",
+        "wins": 0,
+        "ties": 1,
+        "losses": 0,
+        "mean_ate_base": 0.0806,
+        "mean_ate_cond": 0.0806,
+        "mean_coverage_cond": 1.0,
+        "pairs": [
+          {
+            "seed": 0,
+            "base": 0.0806,
+            "cond": 0.0806,
+            "delta_pct": 0.0
+          }
+        ]
+      }
+    },
+    "texture_loss": {
+      "supervised": {
+        "n": 1,
+        "mean_delta_pct": 0.0,
+        "median_delta_pct": 0.0,
+        "ci95_low": null,
+        "ci95_high": null,
+        "wilcoxon_p": 1.0,
+        "wilcoxon_method": "no-nonzero",
+        "wins": 0,
+        "ties": 1,
+        "losses": 0,
+        "mean_ate_base": 0.1068,
+        "mean_ate_cond": 0.1068,
+        "mean_coverage_cond": 1.0,
+        "pairs": [
+          {
+            "seed": 0,
+            "base": 0.1068,
+            "cond": 0.1068,
+            "delta_pct": 0.0
+          }
+        ]
+      },
+      "supervised_multi": {
+        "n": 1,
+        "mean_delta_pct": 0.0,
+        "median_delta_pct": 0.0,
+        "ci95_low": null,
+        "ci95_high": null,
+        "wilcoxon_p": 1.0,
+        "wilcoxon_method": "no-nonzero",
+        "wins": 0,
+        "ties": 1,
+        "losses": 0,
+        "mean_ate_base": 0.1068,
+        "mean_ate_cond": 0.1068,
+        "mean_coverage_cond": 1.0,
+        "pairs": [
+          {
+            "seed": 0,
+            "base": 0.1068,
+            "cond": 0.1068,
+            "delta_pct": 0.0
+          }
+        ]
+      },
+      "ablation": {
+        "n": 1,
+        "mean_delta_pct": 0.0,
+        "median_delta_pct": 0.0,
+        "ci95_low": null,
+        "ci95_high": null,
+        "wilcoxon_p": 1.0,
+        "wilcoxon_method": "no-nonzero",
+        "wins": 0,
+        "ties": 1,
+        "losses": 0,
+        "mean_ate_base": 0.1068,
+        "mean_ate_cond": 0.1068,
+        "mean_coverage_cond": 1.0,
+        "pairs": [
+          {
+            "seed": 0,
+            "base": 0.1068,
+            "cond": 0.1068,
+            "delta_pct": 0.0
+          }
+        ]
+      }
+    },
+    "frame_drop": {
+      "supervised": {
+        "n": 1,
+        "mean_delta_pct": 9.83,
+        "median_delta_pct": 9.83,
+        "ci95_low": null,
+        "ci95_high": null,
+        "wilcoxon_p": 1.0,
+        "wilcoxon_method": "scipy",
+        "wins": 0,
+        "ties": 0,
+        "losses": 1,
+        "mean_ate_base": 0.0701,
+        "mean_ate_cond": 0.077,
+        "mean_coverage_cond": 1.0,
+        "pairs": [
+          {
+            "seed": 0,
+            "base": 0.0701,
+            "cond": 0.077,
+            "delta_pct": 9.83
+          }
+        ]
+      },
+      "supervised_multi": {
+        "n": 1,
+        "mean_delta_pct": 0.0,
+        "median_delta_pct": 0.0,
+        "ci95_low": null,
+        "ci95_high": null,
+        "wilcoxon_p": 1.0,
+        "wilcoxon_method": "no-nonzero",
+        "wins": 0,
+        "ties": 1,
+        "losses": 0,
+        "mean_ate_base": 0.0701,
+        "mean_ate_cond": 0.0701,
+        "mean_coverage_cond": 0.667,
+        "pairs": [
+          {
+            "seed": 0,
+            "base": 0.0701,
+            "cond": 0.0701,
+            "delta_pct": 0.0
+          }
+        ]
+      },
+      "ablation": {
+        "n": 1,
+        "mean_delta_pct": 332.29,
+        "median_delta_pct": 332.29,
+        "ci95_low": null,
+        "ci95_high": null,
+        "wilcoxon_p": 1.0,
+        "wilcoxon_method": "scipy",
+        "wins": 0,
+        "ties": 0,
+        "losses": 1,
+        "mean_ate_base": 0.0701,
+        "mean_ate_cond": 0.3032,
+        "mean_coverage_cond": 1.0,
+        "pairs": [
+          {
+            "seed": 0,
+            "base": 0.0701,
+            "cond": 0.3032,
+            "delta_pct": 332.29
+          }
+        ]
+      }
+    }
+  }
+}

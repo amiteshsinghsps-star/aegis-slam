@@ -1,0 +1,16 @@
+{
+  "Rules": [
+    {
+      "ID": "aegis-slam-retention",
+      "Status": "Enabled",
+      "Filter": {"Prefix": "uploads/"},
+      "Expiration": {"Days": 1}
+    },
+    {
+      "ID": "aegis-slam-mpu-cleanup",
+      "Status": "Enabled",
+      "Filter": {"Prefix": "uploads/"},
+      "AbortIncompleteMultipartUpload": {"DaysAfterInitiation": 1}
+    }
+  ]
+}

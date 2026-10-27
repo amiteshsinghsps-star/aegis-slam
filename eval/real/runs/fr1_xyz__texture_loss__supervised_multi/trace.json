@@ -1,0 +1,230 @@
+{
+  "schema_version": 1,
+  "summary": {
+    "num_decisions": 3,
+    "by_diagnosis": {
+      "dynamic_or_repetitive": 2,
+      "dynamic_or_repetitive_alt": 1
+    },
+    "by_decider": {
+      "diagnosis": 2,
+      "critic": 1
+    },
+    "by_verdict": {
+      "rolled_back": 1,
+      "improved": 1,
+      "pending": 1
+    },
+    "num_rolled_back": 1,
+    "num_kept": 1,
+    "num_backend_switches": 0
+  },
+  "decisions": [
+    {
+      "decision_id": "d-0001",
+      "frame": 30,
+      "evidence": {
+        "inliers": 470.4,
+        "inlier_ratio": 0.318,
+        "blur_var": 393.65,
+        "brightness": 125.7,
+        "contrast": 90.3,
+        "feature_count": 3891.6,
+        "tracked_landmarks": 2864.9,
+        "mean_reproj_px": 1.483,
+        "frame_to_frame_matches": 2607.9,
+        "texture": 55.47
+      },
+      "diagnosis": "dynamic_or_repetitive",
+      "decided_by": "diagnosis",
+      "action": {
+        "tool": "retune_thresholds",
+        "args": {
+          "robust_estimator": "usac",
+          "ransac_thresh": 2.0
+        }
+      },
+      "config_before": {
+        "backend": "orb",
+        "preprocess": "none",
+        "ransac_thresh": 2.5,
+        "pnp_min_inliers": 30,
+        "max_features": 4000,
+        "min_conf": 0.7,
+        "robust_estimator": "ransac"
+      },
+      "config_after": {
+        "backend": "orb",
+        "preprocess": "none",
+        "ransac_thresh": 2.0,
+        "pnp_min_inliers": 30,
+        "max_features": 4000,
+        "min_conf": 0.7,
+        "robust_estimator": "usac"
+      },
+      "outcome": {
+        "window": [
+          21,
+          40
+        ],
+        "inlier_ratio": 0.256319223589546,
+        "verdict": "rolled_back"
+      },
+      "votes": [
+        {
+          "agent": "diagnosis",
+          "tool": "retune_thresholds",
+          "confidence": 0.9,
+          "vetoed": false,
+          "reason": ""
+        }
+      ],
+      "agents": [
+        "perception",
+        "diagnosis",
+        "critic",
+        "safety",
+        "arbiter"
+      ]
+    },
+    {
+      "decision_id": "d-0002",
+      "frame": 50,
+      "evidence": {
+        "inliers": 277.1,
+        "inlier_ratio": 0.302,
+        "blur_var": 244.62,
+        "brightness": 133.0,
+        "contrast": 84.4,
+        "feature_count": 2780.2,
+        "tracked_landmarks": 3795.6,
+        "mean_reproj_px": 1.258,
+        "frame_to_frame_matches": 1619.0,
+        "texture": 39.53
+      },
+      "diagnosis": "dynamic_or_repetitive_alt",
+      "decided_by": "critic",
+      "action": {
+        "tool": "retune_thresholds",
+        "args": {
+          "max_features": 6000
+        }
+      },
+      "config_before": {
+        "backend": "orb",
+        "preprocess": "none",
+        "ransac_thresh": 2.5,
+        "pnp_min_inliers": 30,
+        "max_features": 4000,
+        "min_conf": 0.7,
+        "robust_estimator": "ransac"
+      },
+      "config_after": {
+        "backend": "orb",
+        "preprocess": "none",
+        "ransac_thresh": 2.5,
+        "pnp_min_inliers": 30,
+        "max_features": 6000,
+        "min_conf": 0.7,
+        "robust_estimator": "ransac"
+      },
+      "outcome": {
+        "window": [
+          41,
+          60
+        ],
+        "inlier_ratio": 0.3443124721678325,
+        "verdict": "improved"
+      },
+      "votes": [
+        {
+          "agent": "critic",
+          "tool": "retune_thresholds",
+          "confidence": 0.95,
+          "vetoed": false,
+          "reason": ""
+        },
+        {
+          "agent": "diagnosis",
+          "tool": "retune_thresholds",
+          "confidence": 0.9,
+          "vetoed": false,
+          "reason": ""
+        }
+      ],
+      "agents": [
+        "perception",
+        "diagnosis",
+        "critic",
+        "safety",
+        "arbiter"
+      ]
+    },
+    {
+      "decision_id": "d-0003",
+      "frame": 80,
+      "evidence": {
+        "inliers": 796.0,
+        "inlier_ratio": 0.338,
+        "blur_var": 388.67,
+        "brightness": 123.4,
+        "contrast": 91.0,
+        "feature_count": 4527.4,
+        "tracked_landmarks": 6366.2,
+        "mean_reproj_px": 1.527,
+        "frame_to_frame_matches": 2992.2,
+        "texture": 54.9
+      },
+      "diagnosis": "dynamic_or_repetitive",
+      "decided_by": "diagnosis",
+      "action": {
+        "tool": "retune_thresholds",
+        "args": {
+          "robust_estimator": "usac",
+          "ransac_thresh": 2.0
+        }
+      },
+      "config_before": {
+        "backend": "orb",
+        "preprocess": "none",
+        "ransac_thresh": 2.5,
+        "pnp_min_inliers": 30,
+        "max_features": 6000,
+        "min_conf": 0.7,
+        "robust_estimator": "ransac"
+      },
+      "config_after": {
+        "backend": "orb",
+        "preprocess": "none",
+        "ransac_thresh": 2.0,
+        "pnp_min_inliers": 30,
+        "max_features": 6000,
+        "min_conf": 0.7,
+        "robust_estimator": "usac"
+      },
+      "outcome": {
+        "window": [
+          80,
+          80
+        ],
+        "verdict": "pending"
+      },
+      "votes": [
+        {
+          "agent": "diagnosis",
+          "tool": "retune_thresholds",
+          "confidence": 0.9,
+          "vetoed": false,
+          "reason": ""
+        }
+      ],
+      "agents": [
+        "perception",
+        "diagnosis",
+        "critic",
+        "safety",
+        "arbiter"
+      ]
+    }
+  ]
+}

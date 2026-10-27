@@ -1,0 +1,41 @@
+# Single-node AEGIS-SLAM stack for a Graviton instance (or local dev).
+# The API container serves the web UI and runs jobs on the same box.
+# Queueing/autoscaling are intentionally out of scope for the MVP (documented
+# as future work). Presigned S3 uploads and CloudWatch logs are configured via
+# environment when running on AWS.
+services:
+  aegis-slam:
+    build:
+      context: ..
+      dockerfile: deploy/Dockerfile
+    image: aegis-slam:latest
+    container_name: aegis-slam
+    # Runtime config (bucket, region, instance price for the cost metric,
+    # optional Bedrock model id) is injected by deploy/user-data.sh from SSM
+    # Parameter Store. Absent locally, which is fine: everything AWS degrades
+    # to no-ops. Never commit this file.
+    env_file:
+      - path: .env
+        required: false
+    ports:
+      - "8000:8000"
+    environment:
+      AEGIS_RUNS: /app/runs
+      AEGIS_DATASET: /app/Dataset/synthetic
+      AEGIS_MAX_UPLOAD_MB: "200"
+      AEGIS_INSTANCE_USD_PER_HOUR: ${AEGIS_INSTANCE_USD_PER_HOUR:-}
+      AEGIS_JUDGE_MODE: ${AEGIS_JUDGE_MODE:-0}
+      AEGIS_JUDGE_TOKEN: ${AEGIS_JUDGE_TOKEN:-}
+      # Set these to enable presigned S3 uploads + Bedrock planner:
+      AWS_REGION: ${AWS_REGION:-}
+      AEGIS_S3_BUCKET: ${AEGIS_S3_BUCKET:-}
+      AEGIS_BEDROCK_MODEL: ${AEGIS_BEDROCK_MODEL:-}
+    volumes:
+      - ../runs:/app/runs
+    restart: unless-stopped
+    # Cost guard: cap CPU/mem so a runaway job cannot exceed the instance.
+    deploy:
+      resources:
+        limits:
+          cpus: "2"
+          memory: 3g

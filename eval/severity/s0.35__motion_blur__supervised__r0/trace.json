@@ -1,0 +1,123 @@
+{
+  "schema_version": 1,
+  "summary": {
+    "num_decisions": 2,
+    "by_diagnosis": {
+      "dynamic_or_repetitive": 2
+    },
+    "by_decider": {
+      "rules": 2
+    },
+    "by_verdict": {
+      "rolled_back": 1,
+      "improved": 1
+    },
+    "num_rolled_back": 1,
+    "num_kept": 1,
+    "num_backend_switches": 0
+  },
+  "decisions": [
+    {
+      "decision_id": "d-0001",
+      "frame": 50,
+      "evidence": {
+        "inliers": 45.4,
+        "inlier_ratio": 0.239,
+        "blur_var": 132.61,
+        "brightness": 213.9,
+        "contrast": 32.8,
+        "feature_count": 4000.0,
+        "tracked_landmarks": 1479.5,
+        "mean_reproj_px": 1.426,
+        "frame_to_frame_matches": 2360.0,
+        "texture": 40.95
+      },
+      "diagnosis": "dynamic_or_repetitive",
+      "decided_by": "rules",
+      "action": {
+        "tool": "retune_thresholds",
+        "args": {
+          "robust_estimator": "usac",
+          "ransac_thresh": 2.0
+        }
+      },
+      "config_before": {
+        "backend": "orb",
+        "preprocess": "none",
+        "ransac_thresh": 2.5,
+        "pnp_min_inliers": 30,
+        "max_features": 4000,
+        "min_conf": 0.7,
+        "robust_estimator": "ransac"
+      },
+      "config_after": {
+        "backend": "orb",
+        "preprocess": "none",
+        "ransac_thresh": 2.0,
+        "pnp_min_inliers": 30,
+        "max_features": 4000,
+        "min_conf": 0.7,
+        "robust_estimator": "usac"
+      },
+      "outcome": {
+        "window": [
+          41,
+          60
+        ],
+        "inlier_ratio": 0.15180596014022765,
+        "verdict": "rolled_back"
+      }
+    },
+    {
+      "decision_id": "d-0002",
+      "frame": 70,
+      "evidence": {
+        "inliers": 2.9,
+        "inlier_ratio": 0.082,
+        "blur_var": 1420.33,
+        "brightness": 214.4,
+        "contrast": 43.8,
+        "feature_count": 4000.1,
+        "tracked_landmarks": 1488.9,
+        "mean_reproj_px": 0.0,
+        "frame_to_frame_matches": 2309.7,
+        "texture": 53.97
+      },
+      "diagnosis": "dynamic_or_repetitive",
+      "decided_by": "rules",
+      "action": {
+        "tool": "retune_thresholds",
+        "args": {
+          "robust_estimator": "usac",
+          "ransac_thresh": 2.0
+        }
+      },
+      "config_before": {
+        "backend": "orb",
+        "preprocess": "none",
+        "ransac_thresh": 2.5,
+        "pnp_min_inliers": 30,
+        "max_features": 4000,
+        "min_conf": 0.7,
+        "robust_estimator": "ransac"
+      },
+      "config_after": {
+        "backend": "orb",
+        "preprocess": "none",
+        "ransac_thresh": 2.0,
+        "pnp_min_inliers": 30,
+        "max_features": 4000,
+        "min_conf": 0.7,
+        "robust_estimator": "usac"
+      },
+      "outcome": {
+        "window": [
+          61,
+          80
+        ],
+        "inlier_ratio": 0.11403186274509805,
+        "verdict": "improved"
+      }
+    }
+  ]
+}

@@ -1,0 +1,335 @@
+{
+  "frames": 90,
+  "runs": 2,
+  "conditions": [
+    "baseline_classical",
+    "supervised"
+  ],
+  "severities": [
+    0.35,
+    0.7,
+    1.0
+  ],
+  "scenarios": [
+    "motion_blur",
+    "low_light",
+    "texture_loss"
+  ],
+  "table": [
+    {
+      "severity": 0.35,
+      "scenario": "motion_blur",
+      "baseline_classical": {
+        "n": 2,
+        "ate_mean": 0.2094,
+        "ate_std": 0.0459,
+        "coverage_mean": 1.0,
+        "recover_mean": 24.5,
+        "not_recovered": 0,
+        "decisions_mean": 0,
+        "rolled_back_mean": 0,
+        "ates": [
+          0.1635,
+          0.2552
+        ]
+      },
+      "supervised": {
+        "n": 2,
+        "ate_mean": 0.2231,
+        "ate_std": 0.0487,
+        "coverage_mean": 1.0,
+        "recover_mean": 2,
+        "not_recovered": 1,
+        "decisions_mean": 2.5,
+        "rolled_back_mean": 2,
+        "ates": [
+          0.1743,
+          0.2718
+        ]
+      },
+      "ate_change_pct": -6.6,
+      "pairs": 2,
+      "pairs_won": 0
+    },
+    {
+      "severity": 0.35,
+      "scenario": "low_light",
+      "baseline_classical": {
+        "n": 2,
+        "ate_mean": 0.1777,
+        "ate_std": 0.0743,
+        "coverage_mean": 1.0,
+        "recover_mean": 24.5,
+        "not_recovered": 0,
+        "decisions_mean": 0,
+        "rolled_back_mean": 0,
+        "ates": [
+          0.1035,
+          0.252
+        ]
+      },
+      "supervised": {
+        "n": 2,
+        "ate_mean": 0.1746,
+        "ate_std": 0.0799,
+        "coverage_mean": 1.0,
+        "recover_mean": 2,
+        "not_recovered": 1,
+        "decisions_mean": 2,
+        "rolled_back_mean": 1.5,
+        "ates": [
+          0.0947,
+          0.2545
+        ]
+      },
+      "ate_change_pct": 3.8,
+      "pairs": 2,
+      "pairs_won": 1
+    },
+    {
+      "severity": 0.35,
+      "scenario": "texture_loss",
+      "baseline_classical": {
+        "n": 2,
+        "ate_mean": 0.1906,
+        "ate_std": 0.0514,
+        "coverage_mean": 1.0,
+        "recover_mean": 24.5,
+        "not_recovered": 0,
+        "decisions_mean": 0,
+        "rolled_back_mean": 0,
+        "ates": [
+          0.1392,
+          0.242
+        ]
+      },
+      "supervised": {
+        "n": 2,
+        "ate_mean": 0.2039,
+        "ate_std": 0.0611,
+        "coverage_mean": 1.0,
+        "recover_mean": 2,
+        "not_recovered": 1,
+        "decisions_mean": 2,
+        "rolled_back_mean": 1.5,
+        "ates": [
+          0.1428,
+          0.2649
+        ]
+      },
+      "ate_change_pct": -6.0,
+      "pairs": 2,
+      "pairs_won": 0
+    },
+    {
+      "severity": 0.7,
+      "scenario": "motion_blur",
+      "baseline_classical": {
+        "n": 2,
+        "ate_mean": 0.2383,
+        "ate_std": 0.1414,
+        "coverage_mean": 1.0,
+        "recover_mean": 15.5,
+        "not_recovered": 0,
+        "decisions_mean": 0,
+        "rolled_back_mean": 0,
+        "ates": [
+          0.0969,
+          0.3797
+        ]
+      },
+      "supervised": {
+        "n": 2,
+        "ate_mean": 0.189,
+        "ate_std": 0.0614,
+        "coverage_mean": 1.0,
+        "recover_mean": 2,
+        "not_recovered": 1,
+        "decisions_mean": 2.5,
+        "rolled_back_mean": 2.5,
+        "ates": [
+          0.1276,
+          0.2503
+        ]
+      },
+      "ate_change_pct": 1.2,
+      "pairs": 2,
+      "pairs_won": 1
+    },
+    {
+      "severity": 0.7,
+      "scenario": "low_light",
+      "baseline_classical": {
+        "n": 2,
+        "ate_mean": 0.1657,
+        "ate_std": 0.0737,
+        "coverage_mean": 1.0,
+        "recover_mean": 24.5,
+        "not_recovered": 0,
+        "decisions_mean": 0,
+        "rolled_back_mean": 0,
+        "ates": [
+          0.0919,
+          0.2394
+        ]
+      },
+      "supervised": {
+        "n": 2,
+        "ate_mean": 0.174,
+        "ate_std": 0.0677,
+        "coverage_mean": 1.0,
+        "recover_mean": 2,
+        "not_recovered": 1,
+        "decisions_mean": 2,
+        "rolled_back_mean": 2,
+        "ates": [
+          0.1063,
+          0.2418
+        ]
+      },
+      "ate_change_pct": -8.3,
+      "pairs": 2,
+      "pairs_won": 0
+    },
+    {
+      "severity": 0.7,
+      "scenario": "texture_loss",
+      "baseline_classical": {
+        "n": 2,
+        "ate_mean": 0.1843,
+        "ate_std": 0.0541,
+        "coverage_mean": 1.0,
+        "recover_mean": 12.5,
+        "not_recovered": 0,
+        "decisions_mean": 0,
+        "rolled_back_mean": 0,
+        "ates": [
+          0.1302,
+          0.2384
+        ]
+      },
+      "supervised": {
+        "n": 2,
+        "ate_mean": 0.2016,
+        "ate_std": 0.0714,
+        "coverage_mean": 1.0,
+        "recover_mean": 2,
+        "not_recovered": 1,
+        "decisions_mean": 1.5,
+        "rolled_back_mean": 1.5,
+        "ates": [
+          0.1302,
+          0.273
+        ]
+      },
+      "ate_change_pct": -7.2,
+      "pairs": 2,
+      "pairs_won": 0
+    },
+    {
+      "severity": 1.0,
+      "scenario": "motion_blur",
+      "baseline_classical": {
+        "n": 2,
+        "ate_mean": 0.172,
+        "ate_std": 0.0789,
+        "coverage_mean": 1.0,
+        "recover_mean": 27,
+        "not_recovered": 0,
+        "decisions_mean": 0,
+        "rolled_back_mean": 0,
+        "ates": [
+          0.0931,
+          0.2509
+        ]
+      },
+      "supervised": {
+        "n": 2,
+        "ate_mean": 0.1735,
+        "ate_std": 0.1004,
+        "coverage_mean": 1.0,
+        "recover_mean": 18,
+        "not_recovered": 0,
+        "decisions_mean": 3,
+        "rolled_back_mean": 2,
+        "ates": [
+          0.0731,
+          0.2739
+        ]
+      },
+      "ate_change_pct": 6.1,
+      "pairs": 2,
+      "pairs_won": 1
+    },
+    {
+      "severity": 1.0,
+      "scenario": "low_light",
+      "baseline_classical": {
+        "n": 2,
+        "ate_mean": 0.1839,
+        "ate_std": 0.0985,
+        "coverage_mean": 1.0,
+        "recover_mean": 15.5,
+        "not_recovered": 0,
+        "decisions_mean": 0,
+        "rolled_back_mean": 0,
+        "ates": [
+          0.0854,
+          0.2824
+        ]
+      },
+      "supervised": {
+        "n": 2,
+        "ate_mean": 0.1853,
+        "ate_std": 0.091,
+        "coverage_mean": 1.0,
+        "recover_mean": 2,
+        "not_recovered": 1,
+        "decisions_mean": 2,
+        "rolled_back_mean": 2,
+        "ates": [
+          0.0943,
+          0.2763
+        ]
+      },
+      "ate_change_pct": -4.1,
+      "pairs": 2,
+      "pairs_won": 1
+    },
+    {
+      "severity": 1.0,
+      "scenario": "texture_loss",
+      "baseline_classical": {
+        "n": 2,
+        "ate_mean": 0.1813,
+        "ate_std": 0.0514,
+        "coverage_mean": 1.0,
+        "recover_mean": 24.5,
+        "not_recovered": 0,
+        "decisions_mean": 0,
+        "rolled_back_mean": 0,
+        "ates": [
+          0.1299,
+          0.2326
+        ]
+      },
+      "supervised": {
+        "n": 2,
+        "ate_mean": 0.2097,
+        "ate_std": 0.0692,
+        "coverage_mean": 1.0,
+        "recover_mean": 2,
+        "not_recovered": 1,
+        "decisions_mean": 2,
+        "rolled_back_mean": 2,
+        "ates": [
+          0.1405,
+          0.279
+        ]
+      },
+      "ate_change_pct": -14.0,
+      "pairs": 2,
+      "pairs_won": 0
+    }
+  ]
+}
