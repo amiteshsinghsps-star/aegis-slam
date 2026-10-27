@@ -163,7 +163,7 @@ The image is multi-arch (amd64/arm64) with pinned headless OpenCV 5.
 
 ## 10. Architecture
 
-![Architecture](docs/diagrams/architecture.png)
+![Architecture](docs/diagrams/architecture.svg)
 
 ```
 frames ─► SLAM core (OpenCV 5) ─► poses + map ─► trajectory, artifacts
@@ -177,11 +177,17 @@ frames ─► SLAM core (OpenCV 5) ─► poses + map ─► trajectory, artifac
 
 **Layers:** L1 ingress · L2 SLAM kernel · L3 perception · L4 supervision · L5 guarded act · L6 verify/rollback · L7 audit + cloud.
 
-### Screenshots
+### Agent loop and multi-agent panel
 
-| Live run | Decision trace | Approval gate |
-|---|---|---|
-| ![UI](docs/screenshots/ui.png) | ![Trace](docs/screenshots/trace.png) | ![Approval](docs/screenshots/approval.png) |
+| Agent loop | Multi-agent supervision |
+|---|---|
+| ![Agent loop](docs/diagrams/agent_loop.svg) | ![Multi-agent](docs/diagrams/multi_agent.svg) |
+
+### Evidence figures
+
+![Annotated trace: motion blur](docs/diagrams/trace_walkthrough.png)
+![Severity sweep](docs/diagrams/severity_sweep.png)
+![Real footage (TUM RGB-D)](docs/diagrams/real_bench.png)
 
 ## 11. HTTP API
 
