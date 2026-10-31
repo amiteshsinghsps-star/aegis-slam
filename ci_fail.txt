@@ -1,0 +1,95 @@
+test	Unit tests	﻿2026-10-31T03:36:53.9873246Z ##[group]Run pytest tests/test_geom.py tests/test_health.py tests/test_supervisor.py tests/test_tools_faults.py tests/test_multi.py tests/test_metrics_mcp_eval.py tests/test_datasets.py tests/test_pipeline_backend_switch.py tests/test_review_fixes.py tests/test_server_scenarios.py -q
+test	Unit tests	2026-10-31T03:36:53.9875502Z ^[[36;1mpytest tests/test_geom.py tests/test_health.py tests/test_supervisor.py tests/test_tools_faults.py tests/test_multi.py tests/test_metrics_mcp_eval.py tests/test_datasets.py tests/test_pipeline_backend_switch.py tests/test_review_fixes.py tests/test_server_scenarios.py -q^[[0m
+test	Unit tests	2026-10-31T03:36:53.9907536Z shell: /usr/bin/bash -e {0}
+test	Unit tests	2026-10-31T03:36:53.9907810Z env:
+test	Unit tests	2026-10-31T03:36:53.9908089Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.15/x64
+test	Unit tests	2026-10-31T03:36:53.9908540Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.15/x64/lib/pkgconfig
+test	Unit tests	2026-10-31T03:36:53.9908982Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+test	Unit tests	2026-10-31T03:36:53.9909379Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+test	Unit tests	2026-10-31T03:36:53.9910275Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64
+test	Unit tests	2026-10-31T03:36:53.9910670Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.15/x64/lib
+test	Unit tests	2026-10-31T03:36:53.9911194Z ##[endgroup]
+test	Unit tests	2026-10-31T03:37:04.9103170Z ......................................................F................. [ 87%]
+test	Unit tests	2026-10-31T03:37:05.2395435Z .........F                                                               [100%]
+test	Unit tests	2026-10-31T03:37:05.2396408Z =================================== FAILURES ===================================
+test	Unit tests	2026-10-31T03:37:05.2397301Z _______________________ test_metrics_builds_expected_set _______________________
+test	Unit tests	2026-10-31T03:37:05.2397726Z 
+test	Unit tests	2026-10-31T03:37:05.2398043Z monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7c32e989ee70>
+test	Unit tests	2026-10-31T03:37:05.2398499Z 
+test	Unit tests	2026-10-31T03:37:05.2398703Z     def test_metrics_builds_expected_set(monkeypatch):
+test	Unit tests	2026-10-31T03:37:05.2399205Z         monkeypatch.setenv("AWS_REGION", "us-east-1")
+test	Unit tests	2026-10-31T03:37:05.2400233Z         monkeypatch.setenv("AEGIS_INSTANCE_USD_PER_HOUR", "0.064")
+test	Unit tests	2026-10-31T03:37:05.2400723Z         sent = {}
+test	Unit tests	2026-10-31T03:37:05.2400989Z     
+test	Unit tests	2026-10-31T03:37:05.2401286Z         class _CW:
+test	Unit tests	2026-10-31T03:37:05.2401761Z             def put_metric_data(self, Namespace=None, MetricData=None):
+test	Unit tests	2026-10-31T03:37:05.2402296Z                 sent["ns"] = Namespace
+test	Unit tests	2026-10-31T03:37:05.2402796Z                 sent["data"] = {m["MetricName"]: m["Value"] for m in MetricData}
+test	Unit tests	2026-10-31T03:37:05.2403365Z                 sent["dims"] = MetricData[0]["Dimensions"]
+test	Unit tests	2026-10-31T03:37:05.2403786Z     
+test	Unit tests	2026-10-31T03:37:05.2404042Z >       import boto3
+test	Unit tests	2026-10-31T03:37:05.2404404Z E       ModuleNotFoundError: No module named 'boto3'
+test	Unit tests	2026-10-31T03:37:05.2404733Z 
+test	Unit tests	2026-10-31T03:37:05.2404937Z tests/test_metrics_mcp_eval.py:31: ModuleNotFoundError
+test	Unit tests	2026-10-31T03:37:05.2405556Z __________________ test_unknown_fault_rejected_before_any_run __________________
+test	Unit tests	2026-10-31T03:37:05.2405992Z 
+test	Unit tests	2026-10-31T03:37:05.2406181Z     def test_unknown_fault_rejected_before_any_run():
+test	Unit tests	2026-10-31T03:37:05.2406671Z >       from fastapi.testclient import TestClient
+test	Unit tests	2026-10-31T03:37:05.2407029Z 
+test	Unit tests	2026-10-31T03:37:05.2407191Z tests/test_server_scenarios.py:27: 
+test	Unit tests	2026-10-31T03:37:05.2407646Z _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+test	Unit tests	2026-10-31T03:37:05.2408464Z /opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/fastapi/testclient.py:1: in <module>
+test	Unit tests	2026-10-31T03:37:05.2409363Z     from starlette.testclient import TestClient as TestClient  # noqa
+test	Unit tests	2026-10-31T03:37:05.2410237Z     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+test	Unit tests	2026-10-31T03:37:05.2410744Z _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+test	Unit tests	2026-10-31T03:37:05.2411095Z 
+test	Unit tests	2026-10-31T03:37:05.2411250Z     from __future__ import annotations
+test	Unit tests	2026-10-31T03:37:05.2411655Z     
+test	Unit tests	2026-10-31T03:37:05.2411916Z     import contextlib
+test	Unit tests	2026-10-31T03:37:05.2412171Z     import inspect
+test	Unit tests	2026-10-31T03:37:05.2412979Z     import json
+test	Unit tests	2026-10-31T03:37:05.2413180Z     import math
+test	Unit tests	2026-10-31T03:37:05.2413378Z     import warnings
+test	Unit tests	2026-10-31T03:37:05.2413772Z     from collections.abc import Awaitable, Callable, Generator, Iterable, Mapping, Sequence
+test	Unit tests	2026-10-31T03:37:05.2414340Z     from concurrent.futures import Future, wait as wait_futures
+test	Unit tests	2026-10-31T03:37:05.2414747Z     from contextlib import AbstractContextManager
+test	Unit tests	2026-10-31T03:37:05.2415065Z     from types import GeneratorType
+test	Unit tests	2026-10-31T03:37:05.2415468Z     from typing import TYPE_CHECKING, Any, Literal, Self, TypedDict, TypeGuard, cast
+test	Unit tests	2026-10-31T03:37:05.2415917Z     from urllib.parse import unquote, urljoin
+test	Unit tests	2026-10-31T03:37:05.2416196Z     
+test	Unit tests	2026-10-31T03:37:05.2416377Z     import anyio
+test	Unit tests	2026-10-31T03:37:05.2416581Z     import anyio.abc
+test	Unit tests	2026-10-31T03:37:05.2416803Z     import anyio.from_thread
+test	Unit tests	2026-10-31T03:37:05.2417109Z     from anyio.streams.stapled import StapledObjectStream
+test	Unit tests	2026-10-31T03:37:05.2417425Z     
+test	Unit tests	2026-10-31T03:37:05.2417649Z     from starlette._utils import is_async_callable
+test	Unit tests	2026-10-31T03:37:05.2418042Z     from starlette.exceptions import StarletteDeprecationWarning
+test	Unit tests	2026-10-31T03:37:05.2418496Z     from starlette.types import ASGIApp, Message, Receive, Scope, Send
+test	Unit tests	2026-10-31T03:37:05.2419107Z     from starlette.websockets import WebSocketDisconnect
+test	Unit tests	2026-10-31T03:37:05.2419414Z     
+test	Unit tests	2026-10-31T03:37:05.2419752Z     if TYPE_CHECKING:
+test	Unit tests	2026-10-31T03:37:05.2419978Z         import httpx2 as httpx
+test	Unit tests	2026-10-31T03:37:05.2420210Z     else:
+test	Unit tests	2026-10-31T03:37:05.2420401Z         try:
+test	Unit tests	2026-10-31T03:37:05.2420630Z             import httpx2 as httpx
+test	Unit tests	2026-10-31T03:37:05.2420958Z         except ModuleNotFoundError:  # pragma: no cover
+test	Unit tests	2026-10-31T03:37:05.2421274Z             try:
+test	Unit tests	2026-10-31T03:37:05.2421495Z                 import httpx
+test	Unit tests	2026-10-31T03:37:05.2421766Z             except ModuleNotFoundError:
+test	Unit tests	2026-10-31T03:37:05.2422064Z >               raise RuntimeError(
+test	Unit tests	2026-10-31T03:37:05.2422501Z                     "The starlette.testclient module requires the httpx2 package to be installed.\n"
+test	Unit tests	2026-10-31T03:37:05.2422975Z                     "You can install this with:\n"
+test	Unit tests	2026-10-31T03:37:05.2423289Z                     "    $ pip install httpx2\n"
+test	Unit tests	2026-10-31T03:37:05.2423584Z                 ) from None
+test	Unit tests	2026-10-31T03:37:05.2424062Z E               RuntimeError: The starlette.testclient module requires the httpx2 package to be installed.
+test	Unit tests	2026-10-31T03:37:05.2424673Z E               You can install this with:
+test	Unit tests	2026-10-31T03:37:05.2424970Z E                   $ pip install httpx2
+test	Unit tests	2026-10-31T03:37:05.2425165Z 
+test	Unit tests	2026-10-31T03:37:05.2425501Z /opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/starlette/testclient.py:34: RuntimeError
+test	Unit tests	2026-10-31T03:37:05.2426090Z =========================== short test summary info ============================
+test	Unit tests	2026-10-31T03:37:05.2426831Z FAILED tests/test_metrics_mcp_eval.py::test_metrics_builds_expected_set - ModuleNotFoundError: No module named 'boto3'
+test	Unit tests	2026-10-31T03:37:05.2427853Z FAILED tests/test_server_scenarios.py::test_unknown_fault_rejected_before_any_run - RuntimeError: The starlette.testclient module requires the httpx2 package to be installed.
+test	Unit tests	2026-10-31T03:37:05.2428601Z You can install this with:
+test	Unit tests	2026-10-31T03:37:05.2428862Z     $ pip install httpx2
+test	Unit tests	2026-10-31T03:37:05.2429125Z 2 failed, 80 passed in 10.65s
+test	Unit tests	2026-10-31T03:37:05.4168089Z ##[error]Process completed with exit code 1.
