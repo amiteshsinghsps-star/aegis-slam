@@ -256,7 +256,7 @@ def _eval_job(job):
         data, frames, cond, plan, out_root, tag, seed = job
     else:
         data, frames, cond, plan, out_root, tag = job
-        seed = int(tag.rsplit("s", 1)[-1]) if "s" in tag else 0
+        _m = __import__("re").search(r"(?:__r|_s)(\d+)$", tag); seed = int(_m.group(1)) if _m else 0
     try:
         return run_once(data, frames, cond, plan, out_root, tag, seed=seed), tag
     except Exception as e:
