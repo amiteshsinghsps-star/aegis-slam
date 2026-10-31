@@ -268,3 +268,4 @@ for training. The only costly action (re-capture) requires a human decision.
 
 ## 18. License
 Apache-2.0 — see `LICENSE` and `NOTICE`.
+> Hackathon submission snapshot: [submission-pre-deadline](https://github.com/amiteshsinghsps-star/aegis-slam/releases/tag/submission-pre-deadline)
