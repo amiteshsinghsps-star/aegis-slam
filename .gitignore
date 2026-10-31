@@ -206,3 +206,5 @@ __pycache__/
 .DS_Store
 /Dataset
 /runs/
+
+ci_fail.txt
